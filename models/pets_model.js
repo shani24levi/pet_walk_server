@@ -31,6 +31,10 @@ const petSchema = new mongoose.Schema({
     type:String,
     required:true
   },
+  dayPlan:{
+    type:String,
+    required:true
+  },
   hobbies:{
     type:String
   },

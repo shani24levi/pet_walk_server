@@ -26,5 +26,5 @@ const socialSchema = new mongoose.Schema({
     required:true
   }
 })
-const socialModel = mongoose.model("socialNetworks",socialSchema);
+const socialModel = mongoose.model("socialnetworks",socialSchema);
 exports.socialModel = socialModel;

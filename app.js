@@ -25,11 +25,9 @@ app.all('*', function (req, res, next) {
 });
 
 //Routs Middlewares
-const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const petsRouter = require('./routes/pets');
 const socialNetworkRouter = require('./routes/socialNetworks');
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/pets', petsRouter);
 app.use('/socialNetworks', socialNetworkRouter);

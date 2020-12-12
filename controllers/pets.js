@@ -1,6 +1,6 @@
 const express = require('express');
 const { petModel } = require("../models/pets_model");
-const { validPet } = require("../validation/pets");
+const { validPet, validEditPet } = require("../validation/pets");
 
 const getPets = async (req, res) => {
     try {
@@ -98,12 +98,10 @@ const editPet = async (req, res) => {
             return res.status(400).json({ error: "User is not the pets owner,Unauthorized to edit" })
         }
 
-        let valid = validPet(req.body);
+        let valid = validEditPet(req.body);
         if (!valid.error) {
             try {
-                // מוסיף את האיי די של המשתמש
-                // לפי הטוקן וככה יש אבטחה טובה יותר
-                // req.body.user_id = getuserId;
+                req.body.user_id = getuserId;
                 let data = await petModel.updateOne({ _id: req.body.id }, req.body);
                 res.json(data)
             }

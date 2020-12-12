@@ -65,7 +65,6 @@ const searchSocials = async (req, res) => {
 }
 
 const addSocial = async (req, res) => {
-    console.log("add social");
     try {
         let getuserId = req._id;
         let valid = validSocial(req.body);
