@@ -34,11 +34,11 @@ router.post("/add", async (req, res) => {
   control.userRegister(req, res);
 })
 
-router.put("/", async (req, res) => {
+router.put("/",authToken, async (req, res) => {
   control.editUser(req, res);
 })
 
-router.delete("/:idDel", (req,res) => {
+router.delete("/",authToken, (req,res) => {
   control.deleteUser(req, res);
 })
 

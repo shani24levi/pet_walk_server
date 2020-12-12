@@ -29,7 +29,6 @@ exports.validUser = validUser;
 //Validation for editing users
 const validEditUser = (_userObj) => {
   let schema = Joi.object({
-    id: Joi.any().required(),
     user: Joi.string().min(2).max(50).required(),
     email: Joi.string().min(2).max(50).email().required()
   })
