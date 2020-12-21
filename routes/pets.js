@@ -13,7 +13,7 @@ router.get('/ofUser',authToken ,(req, res, next) => {
 });
 
 //can add dog in the same name 
-router.post('/add',authToken,async (req,res) => {
+router.post('/',authToken,async (req,res) => {
   control.addPet(req, res);
 })
 

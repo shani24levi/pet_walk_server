@@ -17,7 +17,7 @@ router.get("/search", (req, res) => {
     control.searchSocials(req, res);
 });
 
-router.post('/add', authToken, async (req, res) => {
+router.post('/', authToken, async (req, res) => {
     control.addSocial(req, res);
 })
 

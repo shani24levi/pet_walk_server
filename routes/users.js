@@ -9,9 +9,6 @@ router.get('/', async (req, res) => {
   control.getUsers(req,res);
 });
 
-router.get('/me', async (req, res) => {
-  res.status(200).json({ message: "Hi me" });
-});
 
 /* GET user by id after login*/
 router.get('/user/',authToken, async (req, res) => {
