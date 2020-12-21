@@ -34,7 +34,7 @@ app.use('/socialNetworks', socialNetworkRouter);
 
 
 //client conction
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
 //Listening on port 
 const port = process.env.PORT || 5000 ;
