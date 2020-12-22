@@ -47,13 +47,13 @@ const init = () => {
                     console.log(dataBody);
                     console.log(error.response);
 
-                    if (error.response.request.status == 401) {
+                    if (error.response.status == 401) {
                         $("#id_email").next().next().next().removeClass("d-none");
                     }
-                    if (error.response.request.status == 400) {
+                    if (error.response.status == 400) {
                         $("#id_pass").next().next().removeClass("d-none");
                     }
-                    if (error.response.request.status == 500) {
+                    if (error.response.status == 500) {
                         alert("Server Error , Try later");
                     }
                 })
