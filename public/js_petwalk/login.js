@@ -47,18 +47,24 @@ const init = () => {
                     console.log(dataBody);
                     console.log(error.response);
 
-                    // if (error.response) {
-                    //     $("#id_email").next().removeClass("d-none")
-                    //     ifSend = false;
-                    // }
+                    data.message
+                    if (error.response.request.status == 401) {
+                        $("#id_email").next().next().next().removeClass("d-none");
+                    }
+                    if (error.response.request.status == 400) {
+                        $("#id_pass").next().next().removeClass("d-none");
+                    }
+                    if (error.response.request.status == 500) {
+                        alert("Server Error , Try later");
+                    }
                 })
         }
     })
 
-    $("#id_form .form_div input").on("focus",function(){
+    $("#id_form .form_div input").on("focus", function () {
         $(this).next().next().addClass("d-none");
         $(this).next().addClass("d-none");
 
 
-      })
+    })
 }
