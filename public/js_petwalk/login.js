@@ -47,7 +47,6 @@ const init = () => {
                     console.log(dataBody);
                     console.log(error.response);
 
-                    data.message
                     if (error.response.request.status == 401) {
                         $("#id_email").next().next().next().removeClass("d-none");
                     }
