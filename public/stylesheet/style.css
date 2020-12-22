@@ -1,0 +1,32 @@
+h1{
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 39px;
+    color: #000001;
+}
+body{background: #E5E5E5;}
+.btns{
+    border-radius: 20px;
+    color: #5b595c;
+    border: 1px solid #ffffff;
+    background-color: rgba(0, 0, 0, 0.03); 
+    box-shadow: 15px 15px 30px 0px rgba(0, 0, 0, .48);
+}
+.btns:hover{
+    color: #000000;
+    box-shadow: 15px 15px 30px 0px rgba(0, 0, 0, .70);
+    transition: box-shadow .5s;
+}
+
+#id_start{
+    border-radius: 20px;
+    border: 1px solid #5b595c;
+    color: #5b595c;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+#id_start:hover{
+    color: #000000;
+    box-shadow: 17px 8px 13px 4px rgba(0, 0, 0, 0.48);
+    transition: box-shadow .5s;
+}
