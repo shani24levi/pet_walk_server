@@ -50,7 +50,8 @@ const init = () => {
                     console.log(typeof error.response.status);
 
 
-                    if (error.response.status == 401) {
+                    if (error.response.status == Number(401)) {
+                        console.log(holle);
                         $("#id_email").next().next().next().removeClass("d-none");
                     }
                     if (error.response.status == 400) {
