@@ -51,7 +51,7 @@ const init = () => {
 
 
                     if (error.response.status == Number(401)) {
-                        console.log(holle);
+                        console.log("holle");
                         $("#id_email").next().next().next().removeClass("d-none");
                     }
                     if (error.response.status == 400) {
