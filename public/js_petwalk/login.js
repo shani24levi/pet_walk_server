@@ -46,6 +46,9 @@ const init = () => {
                 .catch(error => {
                     console.log(dataBody);
                     console.log(error.response);
+                    console.log(error.response.status);
+                    console.log(typeof error.response.status);
+
 
                     if (error.response.status == 401) {
                         $("#id_email").next().next().next().removeClass("d-none");
