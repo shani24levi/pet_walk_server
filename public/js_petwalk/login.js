@@ -8,7 +8,7 @@ const init = () => {
     $("#id_form").on("submit", (evt) => {
         console.log("works");
         evt.preventDefault();
-        let myUrl = "/users/login/";
+        let myUrl = "http://localhost:5000/users/login/";
         let ifSend = true;
 
         let dataBody = {
@@ -20,10 +20,10 @@ const init = () => {
             $("#id_email").next().next().removeClass("d-none");
             ifSend = false;
         }
-        // else if(!dataBody.email.includes("@") || !email.includes(".")) {
-        //     $("#id_email").next().removeClass("d-none")
-        //     ifSend = false;
-        // }
+        else if(!dataBody.email.includes("@") || !dataBody.email.includes(".")) {
+            $("#id_email").next().removeClass("d-none")
+            ifSend = false;
+        }
 
         if (dataBody.pass == '') {
             $("#id_pass").next().next().removeClass("d-none");
@@ -39,20 +39,15 @@ const init = () => {
             })
                 .then(myData => {
                     console.log(myData.data.token);
-                    // שומר את הטוקן על המחשב של הלקוח
                     localStorage.setItem("token", myData.data.token);
                     window.location.href = "myInfo.html";
                 })
                 .catch(error => {
                     console.log(dataBody);
                     console.log(error.response);
-                    console.log(error.response.status);
-                    console.log(typeof error.response.status);
-
 
                     if (error.response.status == Number(401)) {
-                        console.log("holle");
-                        $("#id_email .nf").removeClass("d-none");
+                        $("#id_email").next().next().next().removeClass("d-none");
                     }
                     if (error.response.status == 400) {
                         $("#id_pass").next().next().removeClass("d-none");

@@ -5,6 +5,10 @@ h1{
     line-height: 39px;
     color: #000001;
 }
+h2{
+    font-weight: 800;
+  
+}
 body{background: #E5E5E5;}
 .btns{
     border-radius: 20px;
@@ -29,4 +33,11 @@ body{background: #E5E5E5;}
     color: #000000;
     box-shadow: 17px 8px 13px 4px rgba(0, 0, 0, 0.48);
     transition: box-shadow .5s;
+}
+
+.btn_section{
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    background-color: #F1F3F6; 
+    box-shadow: 13px 7px 25px 5px  rgba(124, 177, 255, 0.48);
 }
