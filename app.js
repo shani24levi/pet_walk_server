@@ -10,7 +10,7 @@ const app = express();
 //Conect to DB
 const mongoCon = require("./dbs_connected/mongo_connected");
 
-//Middleware
+//Middleware 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
