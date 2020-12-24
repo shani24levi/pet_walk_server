@@ -9,6 +9,10 @@ router.get('/', async (req, res) => {
   control.getUsers(req,res);
 });
 
+router.get('/auth',authToken,(req,res) => {
+  res.json({status:"ok"}) 
+})
+
 
 /* GET user by id after login*/
 router.get('/user/',authToken, async (req, res) => {

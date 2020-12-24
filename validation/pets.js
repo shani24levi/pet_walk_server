@@ -4,7 +4,8 @@ const validPet = (_petObj) => {
   let schema = Joi.object({
     name: Joi.string().min(2).max(50).required(),
     type: Joi.string().min(2).max(50).required(),
-    age: Joi.number().required(),
+    age: Joi.number(),
+    img:Joi.any(),
     weight: Joi.number().min(1).max(200),
     gender: Joi.string().min(1).max(50).required(),
     activityLevel: Joi.string().min(1).max(50).required(),
@@ -22,7 +23,8 @@ const validEditPet = (_petObj) => {
     id: Joi.any().required(),  //id of pet item 
     name: Joi.string().min(2).max(50),
     type: Joi.string().min(2).max(50),
-    age: Joi.number().required(),
+    age: Joi.number(),
+    img:Joi.any(),
     weight: Joi.number().min(1).max(200),
     gender: Joi.string().min(1).max(50),
     activityLevel: Joi.string().min(1).max(50),

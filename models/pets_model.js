@@ -13,6 +13,9 @@ const petSchema = new mongoose.Schema({
     minlength:2,
     maxlength:50
   },
+  img:{
+    type:Number,
+  },
   age:{
     type:Number,
   },
