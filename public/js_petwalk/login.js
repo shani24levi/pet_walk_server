@@ -1,5 +1,3 @@
-import {api_location} from '../config/defult.json';
-
 $(() => {
     init()
 })
@@ -8,7 +6,7 @@ const init = () => {
     $("#id_form").on("submit", (evt) => {
         console.log("works");
         evt.preventDefault();
-        let myUrl ="/users/login";
+        let myUrl = "/users/login";
         let ifSend = true;
 
         let dataBody = {
