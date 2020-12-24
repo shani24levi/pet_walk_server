@@ -1,6 +1,6 @@
+import {api_location} from '../config/defult.json';
+
 $(() => {
-    // TODO: אם המשתמש כבר מחובר לשגר אותו ל
-    // MYINFO
     init()
 })
 
@@ -8,7 +8,7 @@ const init = () => {
     $("#id_form").on("submit", (evt) => {
         console.log("works");
         evt.preventDefault();
-        let myUrl = "/users/login";
+        let myUrl ="/users/login";
         let ifSend = true;
 
         let dataBody = {
