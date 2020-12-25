@@ -15,7 +15,7 @@ const clearLocalStorag = () => {
     })
 }
 
-const getLocalStorag = () => {
+export const getLocalStorag = () => {
     let pet = {
         neme: localStorage.getItem('petName'),
         id: localStorage.getItem('petId')
