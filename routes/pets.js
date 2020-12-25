@@ -12,6 +12,10 @@ router.get('/ofUser',authToken ,(req, res, next) => {
   control.getPet(req, res);
 });
 
+router.get('/ofUser/:id',authToken ,(req, res, next) => {
+  control.getPetById(req, res);
+});
+
 //can add dog in the same name 
 router.post('/',authToken,async (req,res) => {
   control.addPet(req, res);

@@ -44,6 +44,27 @@ const getPet = async (req, res) => {
     }
 }
 
+const getPetById = async (req, res) => {
+    try {
+        let petId = req.params.id;
+        //dont show pet_id
+        petModel.find({ _id: petId }, { _id: 0 })
+            .then(data => {
+                console.log(data);
+                res.json(data)
+            })
+            .catch(err => { //not found
+                res.status(401).json(err)
+            })
+    }
+    catch (err) {
+        res.status(500).json({
+            status: 500,
+            message: err.message,
+        })
+    }
+}
+
 const addPet = async (req, res) => {
     try {
         let getuserId = req._id;
@@ -163,10 +184,10 @@ const searchPet = async (req, res) => {
 }
 
 
-
 module.exports = {
     getPets,
     getPet,
+    getPetById,
     addPet,
     editPet,
     deletePet,

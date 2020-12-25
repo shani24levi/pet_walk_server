@@ -1,9 +1,9 @@
 import { getPetProfile } from "../petProfile.js/appProfile.js";
 
 class MyPetClass {
-    constructor(_parent,_img, _type, _name, _age, _ar) {
+    constructor(_parent, _img, _type, _name, _age, _ar) {
         this.parent = _parent;
-        this.img = (_img== undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
+        this.img = (_img == undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
         this.type = _type;
         this.name = _name;
         this.age = (!_age) ? "Live For Ever" : _age;
@@ -11,7 +11,7 @@ class MyPetClass {
     }
 
     render() {
-        let newDiv = $("<div class='row p-3 justify-content-between btn_section'></div>");
+        let newDiv = $("<div class='row p-3 mt-4 justify-content-between btn_section'></div>");
         $(this.parent).append(newDiv);
 
         $(newDiv).append(`
@@ -20,7 +20,7 @@ class MyPetClass {
             alt="${this.name}" class="img_pet" style="border: #fff solid; border-radius: 50%; padding: 5%;">
     </div>
     <div class="col-6 justify-content-start">
-        <h5 class="pt-4 ml-2" style="color: #727377;">${this.type} 1</h5>
+        <h5 class="pt-4 ml-2" style="color: #727377;">${this.type}</h5>
         <h2 class="ml-2">${this.name}</h2>
         <h5 class="pb-2 ml-2" style="color: #727377;">age : ${this.age}</h5>
     </div>
@@ -33,7 +33,8 @@ class MyPetClass {
         $(newDiv).append(btnRight);
 
         $(btnRight).on("click", () => {
-            getPetProfile(this.ar._id);
+            console.log(this.ar._id);
+            getPetProfile(this.ar._id, this.name);
             window.location.href = "petProfile.html";
         })
     }
