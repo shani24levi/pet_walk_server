@@ -8,30 +8,39 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Home Page</title>
+    <title>Add Pet</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    
-    <script src="plugs/lightBox.js"></script>
+
     <script type="module" src="js_petwalk/myInfo/appMyInfo.js"></script>
-    <script src="plugs/jquery.circlechart.js"></script>
 
 </head>
 
 <body>
     <header class="container-fluid">
         <div class="container">
-            <h1 class="py-4">Home</h1>
-            <h3>Dashbord</h3>
+            <a href="myPets.html" class="py-4"><i class="fa fa-arrow-left" style="font-size: 150%; color: #000000; margin-top: 5%; margin-bottom: 3%;" aria-hidden="true"></i></a>
+            <h3>Add Pet</h3>
         </div>
     </header>
 
     <main class="container-fluid">
         <div class="container">
             <!-- first section -->
-            <div class="my_pets">
+            <div class="add_form">
+                <div class="text-center">
+                    <div style="max-width:50px; max-height: 50px; background-color: #ffffff; border-radius: 50%;">
+                    </div>
+                    <img src="https://i.pinimg.com/originals/f6/af/e8/f6afe8801e93598525796c47afd9f3c0.png" alt="PetPic"
+                        style="max-width: 30%; border-radius: 50%; background-color:azure;">
+                </div>
+
+                    <div class="col-auto text-center">
+                        <button id="add_pic" class="btn btn-primary btn-lg my-4">Add Pic</button>
+                    </div>
+
                 <div class="row p-3 justify-content-between btn_section">
                     <div class="col-1 align-self-center">
                         <i class="fa fa-chevron-left" style="font-size: 200%; color: #6EA8FF;" aria-hidden="true"></i>
@@ -77,10 +86,10 @@
 
         <nav class="row nav">
             <a href="myInfo.html" class="col text-center nav__link">
-                <i class="fa fa-home active pt-2" style="font-size: 300%;" aria-hidden="true"></i>
+                <i class="fa fa-home nav__icon pt-2" style="font-size: 300%;" aria-hidden="true"></i>
             </a>
             <a href="myPets.html" class="col text-center nav__link">
-                <i class="fa fa-paw nav__icon pt-2" style="font-size: 300%;" aria-hidden="true"></i>
+                <i class="fa fa-paw active pt-2" style="font-size: 300%;" aria-hidden="true"></i>
             </a>
             <a href="#" class="col text-center nav__link">
                 <i class="fa fa-user-circle nav__icon pt-2" style="font-size: 300%;" aria-hidden="true"></i>
@@ -94,12 +103,6 @@
         </nav>
     </footer>
 
-        
-    <script>
-        $('.demo-1').percentcircle();
-    </script>
-
 </body>
-
 
 </html>

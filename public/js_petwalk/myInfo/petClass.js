@@ -1,9 +1,9 @@
 import { createPet } from "./petManager.js";
 
 class PetClass {
-    constructor(_parent, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _i, _ar, _dataLength) {
+    constructor(_parent,_img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _i, _ar, _dataLength) {
         this.parent = _parent;
-        //    this.img = (!_img.includes("https:")) ? "https:"+_img : _img;
+        this.img = (_img== undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
         this.type = _type;
         this.name = _name;
         this.age = (!_age) ? "Live For Ever" : _age;
@@ -44,7 +44,7 @@ class PetClass {
         <div class="col-4 justify-content-center">
             <h5 class="pt-4 pl-2" style="color: #727377;"> ${this.type}</h5>
             <h2 class="pl-2">${this.name}</h2>
-            <h5 class="pb-2 pl-2" style="color: #727377;">${this.age}</h5>
+            <h5 class="pb-2 pl-2" style="color: #727377;"> age ${this.age}</h5>
         </div>
         `)
 
@@ -71,11 +71,16 @@ class PetClass {
 
         $(secDiv).append(`<h3 class="mt-4 pb-2">State</h3>`)
 
-        let insidDiv = $("<div class='row p-3 justify-content-between btn_section' style='box-shadow:none'></div>");
+        let insidDiv = $(`<div class='row p-3 justify-content-between btn_section' style='box-shadow:none'></div>`)
         $(secDiv).append(insidDiv);
 
+        // $(secDiv).append(insidDiv);
+        // let insidH = $(`<h4 data-light="light" data-info="${this.img}" data-i="${this.i}" style="cursor:pointer"><strong>Today's Plans</strong></h4>`);
+        // $(insidDiv).append(insidH);
+        // $(insidDiv).append(`<h5>10%</h5>`)
+
         $(insidDiv).append(`<div class="col-6 align-self-center p-2">
-            <h4><strong>Today's Plans</strong></h4>
+            <h4 data-light="light" data-info="${this.img}" data-i="${this.i}"><strong>Today's Plans</strong></h4>
             <h5>10%</h5>
         </div>`)
 

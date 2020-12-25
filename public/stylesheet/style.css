@@ -107,7 +107,7 @@ body{background: #E5E5E5;}
 
 }
 
-@media screen and (max-width:500px){
+@media screen and (max-width:450px){
     .img_pet{
         max-width:150%;
     }

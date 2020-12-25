@@ -94,9 +94,11 @@ const editPet = async (req, res) => {
             try {
                 req.body.user_id = getuserId;
                 let data = await petModel.updateOne({ _id: req.body.id }, req.body);
+                console.log(data);
                 res.json(data)
             }
             catch (err) {
+                console.log(valid.error);
                 res.status(400).json({ message: "Error try again", code: "error" });
             }
         }

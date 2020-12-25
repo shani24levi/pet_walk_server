@@ -5,6 +5,7 @@ import { createPet } from "./petManager.js";
 
 $(() => {
     init();
+    $(document).lightBox();
     //declareViewEvents();
 })
 
