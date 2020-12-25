@@ -27,7 +27,7 @@ const init = async () => {
         console.log(data);
         console.log(data.length);
         createPet(data , 0 , data.length);
-    }
+      }
 }
 
 // const declareViewEvents = () => {
@@ -37,3 +37,4 @@ const init = async () => {
 //         sendEditData()
 //     })
 // }
+

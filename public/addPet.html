@@ -21,7 +21,9 @@
 <body>
     <header class="container-fluid">
         <div class="container">
-            <a href="myPets.html" class="py-4"><i class="fa fa-arrow-left" style="font-size: 150%; color: #000000; margin-top: 5%; margin-bottom: 3%;" aria-hidden="true"></i></a>
+            <a href="myPets.html" class="py-4"><i class="fa fa-arrow-left"
+                    style="font-size: 150%; color: #000000; margin-top: 5%; margin-bottom: 3%;"
+                    aria-hidden="true"></i></a>
             <h3>Add Pet</h3>
         </div>
     </header>
@@ -37,53 +39,107 @@
                         style="max-width: 30%; border-radius: 50%; background-color:azure;">
                 </div>
 
-                    <div class="col-auto text-center">
-                        <button id="add_pic" class="btn btn-primary btn-lg my-4">Add Pic</button>
-                    </div>
-
-                <div class="row p-3 justify-content-between btn_section">
-                    <div class="col-1 align-self-center">
-                        <i class="fa fa-chevron-left" style="font-size: 200%; color: #6EA8FF;" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-4 d-flex justify-content-center">
-                        <img src="https://banner2.cleanpng.com/20181231/fta/kisspng-computer-icons-user-profile-portable-network-graph-circle-svg-png-icon-free-download-5-4714-onli-5c2a3809d6e8e6.1821006915462707298803.jpg"
-                            alt="Avatar" class="img_pet" style="border: #fff solid; border-radius: 50%; padding: 5%;">
-                    </div>
-                    <div class="col-4 justify-content-center">
-                        <h5 class="pt-4 pl-2" style="color: #727377;">info 1</h5>
-                        <h2 class="pl-2">h2</h2>
-                        <h5 class="pb-2 pl-2" style="color: #727377;">h5</h5>
-                    </div>
-                    <div class="col-1 align-self-center">
-                        <i class="fa fa-chevron-right" style="font-size: 200%; color: #6EA8FF;" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <!--end first section -->
-
-                <!-- sec section -->
-                <h3 class="mt-4 pb-2">State</h3>
-
-                <div class="row p-3 justify-content-between btn_section" style="box-shadow:none">
-                    <div class="col-6 align-self-center p-2">
-                        <h4><strong>ss</strong></h4>
-                        <h5>sss</h5>
-                    </div>
-                    <div class="col-4 align-self-center text-center demo">
-                        <div class="demo-1 align-self-center text-center" data-percent="65"></div>
-                    </div>
-                </div>
-
                 <div class="col-auto text-center">
-                    <button id="id_start_walk" type="submit" class="btn btn-lg btns_blue my-4 w-75">Start a
-                        Walk</button>
+                    <input class="btn btn-primary btn-lg my-4 w-75" type="file" id="formFile">
                 </div>
+
+                <form id="id_form" method="post">
+                    <div class="form_div pb-4 pt-4">
+                        <label for="id_name">Pet Name:</label>
+                        <input type="text" id="id_name" class="form-control form-control-lg"
+                            style="border-color: #ffffff;">
+                        <small class="text-danger d-none">* Naem is required</small>
+                        <small class="text-danger d-none">* Name allrdy exist</small>
+                    </div>
+
+                    <div class="form_div pb-2">
+                        <label for="id_type">Type:</label>
+                        <select class="form-select form-select-lg mb-3" size="3" aria-label="size 3 select example">
+                            <option selected value="">Open this select menu</option>
+                            <option value="Rottweiler">Rottweiler</option>
+                            <option value="Pitbull">Pitbull</option>
+                            <option value="German Shepherd">German Shepherd</option>
+                            <option value="Finzer">Finzer</option>
+                            <option value="Siberian Husky">Siberian Husky</option>
+                            <option value="Poodle">Poodle</option>
+                            <option value="Labrador">Three</option>
+                            <option value="Cute type">Cute type</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <small class="text-danger d-none">* Type is required</small>
+                    </div>
+
+                    <div class="form_div pb-2">
+                        <label for="id_gender">Gender:</label>
+                        <select id="id_gender" class="form-select form-select-lg mb-3"
+                            aria-label=".form-select-lg example">
+                            <option selected value="">Open this select menu</option>
+                            <option value="female">female</option>
+                            <option value="male">male</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="col form_div pb-2">
+                            <label for="id_age">Age:</label>
+                            <input type="text" id="id_age" class="form-control form-control-lg"
+                                style="border-color: #ffffff;">
+                            <small class="text-danger d-none">* Age is required</small>
+                        </div>
+
+                        <div class="col form_div pb-2">
+                            <label for="id_weight">Weight:</label>
+                            <input type="text" id="id_weight" class="form-control form-control-lg"
+                                style="border-color: #ffffff;">
+                        </div>
+                    </div>
+
+                    <div class="form_div pb-4 pt-4">
+                        <label for="id_dayPlan">Day Plan:</label>
+                        <textarea type="text" id="id_dayPlan" placeholder="walks, games, social, nutritional,mood.. "
+                            class="form-control form-control-lg" style="border-color: #ffffff;"></textarea>
+                        <small class="text-danger d-none">* Day Plan required</small>
+                    </div>
+
+                    <div class="row">
+                        <div class="col form_div pb-2">
+                            <label for="id_dayPlanLevel">Day Plan:</label>
+                            <input type="text" id="id_dayPlanLevel" class="form-control form-control-lg"
+                                placeholder="Leval" style="border-color: #ffffff;">
+                            <small class="text-danger d-none">* required</small>
+                            <small class="text-danger d-none">* Min 1</small>
+                        </div>
+
+                        <div class="col form_div pb-2">
+                            <label for="id_activityLevel">Activity:</label>
+                            <input type="text" id="id_activityLevel" class="form-control form-control-lg"
+                                placeholder="Leval" style="border-color: #ffffff;">
+                            <small class="text-danger d-none">* required</small>
+                            <small class="text-danger d-none">* Min 1</small>
+                        </div>
+
+                        <div class="col form_div pb-2">
+                            <label for="id_foodLevel">Food:</label>
+                            <input type="text" id="id_foodLevel" class="form-control form-control-lg"
+                                placeholder="Leval" style="border-color: #ffffff;">
+                            <small class="text-danger d-none">* required</small>
+                            <small class="text-danger d-none">* Min 1</small>
+                        </div>
+                    </div>
+
+                    <div class="form_div pb-2">
+                        <label for="id_hobbies">Hobbies:</label>
+                        <input type="text" id="id_hobbies" class="form-control form-control-lg"
+                            style="border-color: #ffffff;">
+                    </div>
+
+                    <button type="submit" class="btn btn-lg btn-block my-4 w-100 btns_blue ">Add Pet</button>
+                </form>
             </div>
-            <!--end sec section -->
         </div>
     </main>
 
     <footer>
-
         <nav class="row nav">
             <a href="myInfo.html" class="col text-center nav__link">
                 <i class="fa fa-home nav__icon pt-2" style="font-size: 300%;" aria-hidden="true"></i>

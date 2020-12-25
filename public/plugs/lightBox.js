@@ -10,13 +10,13 @@ $.fn.lightBox = function(){
     closeLightBox();
   })
 
- //only h4 with data-light shows
-  $("h4[data-light]").on("click",function(){
+ //only img with data-light shows
+  $("div[data-light]").on("click",function(){
 
     // let imgSrc = $(this).attr("src");
-    let h4Src = $(this).attr("data-info");
-    let h4Alt = $(this).attr("data-i");
-    showLightBox(h4Src,h4Alt);
+    let imgSrc = $(this).attr("data-address");
+    let imgAlt = $(this).attr("data-address");
+    showLightBox(imgSrc,imgAlt);
   })
 }
 

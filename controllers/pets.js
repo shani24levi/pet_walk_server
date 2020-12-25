@@ -58,6 +58,8 @@ const addPet = async (req, res) => {
                     else {
                         //add pet
                         req.body.user_id = getuserId;
+                        //set dayPlanLevel by split:
+
                         let data = await petModel.insertMany([req.body]);
                         res.json(data);
                     }

@@ -11,8 +11,7 @@ const validPet = (_petObj) => {
     foodLevel: Joi.string().min(1).max(50).required(),
     dayPlan: Joi.string().min(1).max(100).required(),
     hobbies: Joi.string().min(1).max(50),
-    img:Joi.string()
-
+    img:Joi.string(),
   })
   return schema.validate(_petObj);
 }
@@ -27,11 +26,11 @@ const validEditPet = (_petObj) => {
     age: Joi.number().required(),
     weight: Joi.number().min(1).max(200),
     gender: Joi.string().min(1).max(50),
-    activityLevel: Joi.string().min(1).max(50),
-    foodLevel: Joi.string().min(1).max(50),
-    dayPlan: Joi.string().min(1).max(100),
+    activityLevel: Joi.string().min(1).max(50).required(),
+    foodLevel: Joi.string().min(1).max(50).required(),
+    dayPlan: Joi.string().required(),
     hobbies: Joi.string().min(1).max(50),
-    img:Joi.string()
+    img:Joi.string(),
   })
   return schema.validate(_petObj);
 }

@@ -79,7 +79,7 @@ class PetClass {
         // $(insidDiv).append(insidH);
         // $(insidDiv).append(`<h5>10%</h5>`)
 
-        $(insidDiv).append(`<div class="col-6 align-self-center p-2">
+        $(insidDiv).append(`<div class="col-8 align-self-center p-2">
             <h4 data-light="light" data-info="${this.img}" data-i="${this.i}"><strong>Today's Plans</strong></h4>
             <h5>10%</h5>
         </div>`)
@@ -93,17 +93,15 @@ class PetClass {
         `);
         $(pricentDiv).append(btnPricent);
 
-        $(pricentDiv).on("click", () => {
+        $(btnPricent).on("click", () => {
             console.log('upate peicent');
-            //else dose nothing 
         })
-
 
 
         let insidDiv2 = $("<div class='row p-3 my-3 justify-content-between btn_section' style='box-shadow:none'></div>");
         $(secDiv).append(insidDiv2);
 
-        $(insidDiv2).append(`<div class="col-6 align-self-center p-2">
+        $(insidDiv2).append(`<div class="col-8 align-self-center p-2">
             <h4><strong>Energy avaliable</strong></h4>
             <h5>10%</h5>
         </div>`)
@@ -119,7 +117,6 @@ class PetClass {
 
         $(btnPricent2).on("click", () => {
             console.log('upate peicent');
-            //else dose nothing 
         })
 
 
@@ -127,7 +124,7 @@ class PetClass {
         $(secDiv).append(insidDiv3);
 
 
-        $(insidDiv3).append(`<div class="col-6 align-self-center p-2">
+        $(insidDiv3).append(`<div class="col-8 align-self-center p-2">
         <h4><strong>Weekly objectives</strong></h4>
         <h5>2 walks left</h5>
     </div>`)
@@ -143,10 +140,7 @@ class PetClass {
 
         $(pricentDiv3).on("click", () => {
             console.log('upate peicent');
-            //else dose nothing 
         })
-
-
 
 
 
@@ -162,8 +156,11 @@ class PetClass {
 
         $(walkBtn).on("click", () => {
             console.log('upate walk');
-            //else dose nothing 
         })
+
+        // function set in pet_walk_app in Plangs folder-> jquery.circlechart.js
+        // sorce:  https://www.jqueryscript.net/loading/Create-Percentage-Circles-with-jQuery-CSS3-percircle-js.html
+        $('.demo-1').percentcircle();
     }
 }
 

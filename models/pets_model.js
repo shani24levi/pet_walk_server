@@ -1,3 +1,4 @@
+const { number } = require("joi");
 const mongoose = require("mongoose");
 
 const petSchema = new mongoose.Schema({
@@ -37,6 +38,10 @@ const petSchema = new mongoose.Schema({
   dayPlan:{
     type:String,
     required:true
+  },
+  dayPlanLevel:{
+    type:Number,
+    default: 0
   },
   hobbies:{
     type:String

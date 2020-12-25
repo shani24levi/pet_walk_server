@@ -25,9 +25,10 @@ router.delete("/:idDel",authToken, async(req,res) => {
   control.deletePet(req, res);
 })
 
-// localhost:3000/search/?q=...
+// localhost:5000/search/?q=...
 router.get("/search", (req, res) => {
   control.searchPet(req, res);
 });
+
 
 module.exports = router;
