@@ -7,6 +7,7 @@ export const auth = async() => {
       "x-auth-token": localStorage["token"],
     }
   })
+  console.log(myData);
   try{
     return myData.data
   }

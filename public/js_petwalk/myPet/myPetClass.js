@@ -1,13 +1,12 @@
-import { getPetProfile } from "../petProfile.js/appProfile.js";
 
 class MyPetClass {
-    constructor(_parent, _img, _type, _name, _age, _ar) {
+    constructor(_parent, _img, _type, _name, _age, _id) {
         this.parent = _parent;
         this.img = (_img == undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
         this.type = _type;
         this.name = _name;
         this.age = (!_age) ? "Live For Ever" : _age;
-        this.ar = _ar;
+        this.id = _id;
     }
 
     render() {
@@ -33,8 +32,10 @@ class MyPetClass {
         $(newDiv).append(btnRight);
 
         $(btnRight).on("click", () => {
-            console.log(this.ar._id);
-            getPetProfile(this.ar._id, this.name);
+            //using local storag to send the info pet clicked 
+            localStorage.setItem(`petName`, `${this.name}`);
+            localStorage.setItem(`petId`, `${this.id}`);
+
             window.location.href = "petProfile.html";
         })
     }

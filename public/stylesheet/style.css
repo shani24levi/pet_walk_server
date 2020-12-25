@@ -91,6 +91,10 @@ body{background: #E5E5E5;}
     font-size: 300%;
 }
 
+#collapseOne, #collapseTwo ,#collapseThree{
+    background-color: #E5E5E5;
+}
+
 
 
 @media screen and (min-width:768px){
