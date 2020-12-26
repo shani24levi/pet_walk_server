@@ -10,13 +10,23 @@ let newPet={
 $(()=>{
     $("#id_name").on("input",()=>{
         newPet.name=$("#id_name").val()
-        console.log(newPet.name)
     })
 
-    $("select").change(()=>{
-        console.log($("#id_type option:selected").val())
+    $("#id_type").change(()=>{
+        newPet.type=$("#id_type option:selected").val()
     });
     
+    $("#id_gender").change(()=>{
+        newPet.gender=$("#id_gender option:selected").val()
+    });
+
+    $("#id_age").on("input",()=>{
+        newPet.age=$("#id_age").val() 
+    })
+
+    $("#id_weight").on("input",()=>{
+        newPet.weight=$("#id_wight").val()
+    })
 });
 
 
