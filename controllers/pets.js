@@ -1,7 +1,8 @@
 const express = require('express');
 const { petModel } = require("../models/pets_model");
-const { validPet, validEditPet } = require("../validation/pets");
+const { validPet ,validEditPet } = require("../validation/pets");
 
+//get all pets of all users
 const getPets = async (req, res) => {
     try {
         petModel.find({})
@@ -22,6 +23,7 @@ const getPets = async (req, res) => {
     }
 }
 
+//get all pets of one user
 const getPet = async (req, res) => {
     try {
         let getuserId = req._id;
@@ -44,6 +46,7 @@ const getPet = async (req, res) => {
     }
 }
 
+//get one pet of user
 const getPetById = async (req, res) => {
     try {
         let petId = req.params.id;
@@ -79,8 +82,6 @@ const addPet = async (req, res) => {
                     else {
                         //add pet
                         req.body.user_id = getuserId;
-                        //set dayPlanLevel by split:
-
                         let data = await petModel.insertMany([req.body]);
                         res.json(data);
                     }
@@ -109,7 +110,7 @@ const editPet = async (req, res) => {
         let checkPetUserToToken = await petModel.findOne({ _id: req.body.id, user_id: getuserId })
         console.log(checkPetUserToToken)
         if (!checkPetUserToToken) {
-            return res.status(400).json({ error: "User is not the pets owner,Unauthorized to edit" })
+            return res.status(401).json({ error: "User is not the pets owner,Unauthorized to edit" })
         }
 
         let valid = validEditPet(req.body);
@@ -122,7 +123,7 @@ const editPet = async (req, res) => {
             }
             catch (err) {
                 console.log(valid.error);
-                res.status(400).json({ message: "Error try again", code: "error" });
+                res.status(402).json({ message: "Error try again", code: "error" });
             }
         }
         else {

@@ -32,6 +32,7 @@
         <div class="container">
             <!-- first section -->
             <div class="edit_form">
+                <div id="loading"></div>
                 <div class="text-center">
                     <div style="max-width:50px; max-height: 50px; background-color: #ffffff; border-radius: 50%;">
                     </div>
@@ -49,12 +50,14 @@
                         <input type="text" id="id_name" class="form-control form-control-lg"
                             style="border-color: #ffffff;">
                         <small class="text-danger d-none">* Naem is required</small>
-                        <small class="text-danger d-none">* Name allrdy exist</small>
+                        <small class="text-danger d-none">* Name is to low</small>
                     </div>
 
+              
                     <div class="form_div pb-2">
                         <label for="id_type">Type:</label>
-                        <select class="form-select form-select-lg mb-3" size="3" aria-label="size 3 select example">
+                        <select id="id_type" class="form-select form-select-lg mb-3"
+                            aria-label=".form-select-lg example">
                             <option selected value="">Open this select menu</option>
                             <option value="Rottweiler">Rottweiler</option>
                             <option value="Pitbull">Pitbull</option>
@@ -68,6 +71,7 @@
                         </select>
                         <small class="text-danger d-none">* Type is required</small>
                     </div>
+
 
                     <div class="form_div pb-2">
                         <label for="id_gender">Gender:</label>
@@ -84,13 +88,13 @@
                             <label for="id_age">Age:</label>
                             <input type="text" id="id_age" class="form-control form-control-lg"
                                 style="border-color: #ffffff;">
-                            <small class="text-danger d-none">* Age is required</small>
                         </div>
 
                         <div class="col form_div pb-2">
                             <label for="id_weight">Weight:</label>
                             <input type="text" id="id_weight" class="form-control form-control-lg"
                                 style="border-color: #ffffff;">
+                                <small class="text-danger d-none">* Weight is to low</small>
                         </div>
                     </div>
 
@@ -99,6 +103,7 @@
                         <textarea type="text" id="id_dayPlan" placeholder="walks, games, social, nutritional,mood.. "
                             class="form-control form-control-lg" style="border-color: #ffffff;"></textarea>
                         <small class="text-danger d-none">* Day Plan required</small>
+                        <small class="text-danger d-none">* Day Plan is to low</small>
                     </div>
 
                     <div class="row">
@@ -107,6 +112,8 @@
                             <input type="text" id="id_dayPlanLevel" class="form-control form-control-lg"
                                 placeholder="Leval" style="border-color: #ffffff;">
                             <small class="text-danger d-none">* required</small>
+                            <small class="text-danger d-none">* To Low</small>
+                            <small class="text-danger d-none">* To High</small>
                         </div>
 
                         <div class="col form_div pb-2">
@@ -114,6 +121,8 @@
                             <input type="text" id="id_activityLevel" class="form-control form-control-lg"
                                 placeholder="Leval" style="border-color: #ffffff;">
                             <small class="text-danger d-none">* required</small>
+                            <small class="text-danger d-none">* To Low</small>
+                            <small class="text-danger d-none">* To High</small>
                         </div>
 
                         <div class="col form_div pb-2">
@@ -121,12 +130,21 @@
                             <input type="text" id="id_foodLevel" class="form-control form-control-lg"
                                 placeholder="Leval" style="border-color: #ffffff;">
                             <small class="text-danger d-none">* required</small>
+                            <small class="text-danger d-none">* To Low</small>
+                            <small class="text-danger d-none">* To High</small>
                         </div>
                     </div>
 
                     <div class="form_div pb-2">
                         <label for="id_hobbies">Hobbies:</label>
                         <input type="text" id="id_hobbies" class="form-control form-control-lg"
+                            style="border-color: #ffffff;">
+                            <small class="text-danger d-none">* To High</small>
+                    </div>
+
+                    <div class="form_div pb-2">
+                        <label for="id_bio">Bio:</label>
+                        <input type="text" id="id_bio" class="form-control form-control-lg"
                             style="border-color: #ffffff;">
                     </div>
 

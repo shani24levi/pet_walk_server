@@ -1,22 +1,32 @@
 import { createPet } from "./petManager.js";
 
 class PetClass {
-    constructor(_parent,_img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _i, _ar, _dataLength) {
+            //         .img   .type   .name .age, .dayPlan  .activityLevel,   foodLevel  dayPlanLevel  currDayPlanLevel  currActivityLevel  currFoodLevel, i, _arr, dataLength);
+    constructor(_parent,_img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel,_currDayPlanLevel,_currActivityLevel,_currFoodLevel, _i, _ar, _dataLength) {
         this.parent = _parent;
         this.img = (_img== undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
         this.type = _type;
         this.name = _name;
-        this.age = (!_age) ? "Live For Ever" : _age;
+        this.age = (!_age) ? "Forever Young" : _age;
         this.dayPlan = _dayPlan;
         this.activityLevel = _activityLevel;
         this.foodLevel = _foodLevel;
+        this.dayPlanLevel = _dayPlanLevel;
+
+        this.currDayPlanLevel = (_currDayPlanLevel == undefined) ? 0 :  _currDayPlanLevel;
+        this.currActivityLevel = (_currActivityLevel == undefined) ? 0 :  _currActivityLevel;
+        this.currFoodLevel = (_currFoodLevel == undefined) ? 0 :  _currFoodLevel;
+
         this.i = _i;
         this.lenthData = _dataLength-1;
         this.ar = _ar;
 
+        this.complitDayPlan = this.currDayPlanLevel==0 ? this.currDayPlanLevel : Math.ceil(this.currDayPlanLevel/(100/this.dayPlanLevel));
+        this.complitActivity = this.currActivityLevel==0 ? this.currActivityLevel : Math.ceil(this.currActivityLevel/(100/this.activityLevel));
+        this.complitFood = this.currFoodLevel==0 ? this.currFoodLevel : Math.ceil(this.currFoodLevel/(100/this.foodLevel));
     }
 
-    render() {
+    render() {   
         let newDiv = $("<div class='row p-3 justify-content-between btn_section'></div>");
         $(this.parent).append(newDiv);
 
@@ -74,14 +84,9 @@ class PetClass {
         let insidDiv = $(`<div class='row p-3 justify-content-between btn_section' style='box-shadow:none'></div>`)
         $(secDiv).append(insidDiv);
 
-        // $(secDiv).append(insidDiv);
-        // let insidH = $(`<h4 data-light="light" data-info="${this.img}" data-i="${this.i}" style="cursor:pointer"><strong>Today's Plans</strong></h4>`);
-        // $(insidDiv).append(insidH);
-        // $(insidDiv).append(`<h5>10%</h5>`)
-
         $(insidDiv).append(`<div class="col-8 align-self-center p-2">
             <h4 data-light="light" data-info="${this.img}" data-i="${this.i}"><strong>Today's Plans</strong></h4>
-            <h5>10%</h5>
+            <h5>${this.complitDayPlan} tasks completed</h5>
         </div>`)
 
         let pricentDiv = $("<div class='col-4 align-self-center text-center demo'></div>");
@@ -89,7 +94,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent = $(` 
-        <div class="demo-1 align-self-center text-center" data-percent="65"></div>
+        <div class="demo-1 align-self-center text-center" data-percent="${this.currDayPlanLevel}"></div>
         `);
         $(pricentDiv).append(btnPricent);
 
@@ -103,7 +108,7 @@ class PetClass {
 
         $(insidDiv2).append(`<div class="col-8 align-self-center p-2">
             <h4><strong>Energy avaliable</strong></h4>
-            <h5>10%</h5>
+            <h5>${this.complitActivity} activities were completed</h5>
         </div>`)
 
         let pricentDiv2 = $("<div class='col-4 align-self-center text-center demo'></div>");
@@ -111,7 +116,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent2 = $(` 
-        <div class="demo-1 align-self-center text-center" data-percent="65"></div>
+        <div class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
         `);
         $(pricentDiv2).append(btnPricent2);
 
@@ -125,8 +130,8 @@ class PetClass {
 
 
         $(insidDiv3).append(`<div class="col-8 align-self-center p-2">
-        <h4><strong>Weekly objectives</strong></h4>
-        <h5>2 walks left</h5>
+        <h4><strong>Daily food habits</strong></h4>
+        <h5>${this.complitFood} meals were completed</h5>
     </div>`)
 
         let pricentDiv3 = $("<div class='col-4 align-self-center text-center demo'></div>");
@@ -134,7 +139,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent3 = $(` 
-    <div class="demo-1 align-self-center text-center" data-percent="65"></div>
+    <div class="demo-1 align-self-center text-center" data-percent="${this.currFoodLevel}"></div>
     `);
         $(pricentDiv3).append(btnPricent3);
 

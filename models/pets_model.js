@@ -28,11 +28,11 @@ const petSchema = new mongoose.Schema({
     required:true
   },
   activityLevel:{
-    type:String,
+    type:Number,
     required:true
   },
   foodLevel:{
-    type:String,
+    type:Number,
     required:true
   },
   dayPlan:{
@@ -41,9 +41,26 @@ const petSchema = new mongoose.Schema({
   },
   dayPlanLevel:{
     type:Number,
+    required:true
+  },
+//for maintain the dog's present values ​​and change according to the user 
+  currDayPlanLevel:{
+    type:Number,
+    default: 0
+  },  
+  currActivityLevel:{
+    type:Number,
+    default: 0
+  },  
+  currFoodLevel:{
+    type:Number,
     default: 0
   },
+
   hobbies:{
+    type:String
+  },
+  bio:{
     type:String
   },
   user_id:{
