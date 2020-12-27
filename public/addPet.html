@@ -49,6 +49,7 @@
                         <input type="text" id="id_name" class="form-control form-control-lg"
                             style="border-color: #ffffff;">
                         <small class="text-danger d-none">* Name is required</small>
+                        <small class="text-danger d-none">* Name too short</small>
                         <small class="text-danger d-none">* Name already exist</small>
                     </div>
 
@@ -66,7 +67,7 @@
                             <option value="Cute type">Cute type</option>
                             <option value="Other">Other</option>
                         </select>
-                        <small class="text-danger d-none">* Type is required</small>
+                        <small id="id_type_small" class="text-danger d-none">* Type is required</small>
                     </div>
 
                     <div class="form_div pb-2">
@@ -84,13 +85,13 @@
                             <label for="id_age">Age:</label>
                             <input type="text" id="id_age" class="form-control form-control-lg"
                                 style="border-color: #ffffff;">
-                            <small class="text-danger d-none">* Age is required</small>
                         </div>
 
                         <div class="col form_div pb-2">
                             <label for="id_weight">Weight:</label>
                             <input type="text" id="id_weight" class="form-control form-control-lg"
                                 style="border-color: #ffffff;">
+                            <small class="text-danger d-none">* Weight too low</small>
                         </div>
                     </div>
 
@@ -99,15 +100,18 @@
                         <textarea type="text" id="id_dayPlan" placeholder="walks, games, social, nutritional,mood.. "
                             class="form-control form-control-lg" style="border-color: #ffffff;"></textarea>
                         <small class="text-danger d-none">* Day Plan required</small>
+                        <small class="text-danger d-none">* Day Plan too low</small>
                     </div>
 
                     <div class="row">
                         <div class="col form_div pb-2">
-                            <label for="id_dayPlanLevel">Day Plan completed:</label>
+                            <label for="id_dayPlanLevel">Day Plan:</label>
                             <input type="text" id="id_dayPlanLevel" class="form-control form-control-lg"
                                 placeholder="Level" style="border-color: #ffffff;">
                             <small class="text-danger d-none">* required</small>
-                            <small class="text-danger d-none">* Min 1</small>
+                            <small class="text-danger d-none">* Too low</small>
+                            <small class="text-danger d-none">* Too high</small>
+                            <small class="text-danger d-none">* Number only</small>
                         </div>
 
                         <div class="col form_div pb-2">
@@ -115,7 +119,9 @@
                             <input type="text" id="id_activityLevel" class="form-control form-control-lg"
                                 placeholder="Level" style="border-color: #ffffff;">
                             <small class="text-danger d-none">* required</small>
-                            <small class="text-danger d-none">* Min 1</small>
+                            <small class="text-danger d-none">* Too low</small>
+                            <small class="text-danger d-none">* Too high</small>
+                            <small class="text-danger d-none">* Number only</small>
                         </div>
 
                         <div class="col form_div pb-2">
@@ -123,7 +129,9 @@
                             <input type="text" id="id_foodLevel" class="form-control form-control-lg"
                                 placeholder="Level" style="border-color: #ffffff;">
                             <small class="text-danger d-none">* required</small>
-                            <small class="text-danger d-none">* Min 1</small>
+                            <small class="text-danger d-none">* Too low</small>
+                            <small class="text-danger d-none">* Too high</small>
+                            <small class="text-danger d-none">* Number only</small>
                         </div>
                     </div>
 
@@ -131,9 +139,17 @@
                         <label for="id_hobbies">Hobbies:</label>
                         <input type="text" id="id_hobbies" class="form-control form-control-lg"
                             style="border-color: #ffffff;">
+                            <small class="text-danger d-none">* Too high</small>
                     </div>
 
-                    <button id="add_pet_button" type="submit" class="btn btn-lg btn-block my-4 w-100 btns_blue ">Add Pet</button>
+                    <div class="form_div pb-2">
+                        <label for="id_bio">Bio:</label>
+                        <input type="text" id="id_bio" class="form-control form-control-lg"
+                            style="border-color: #ffffff;">
+                    </div>
+
+                    <button type="submit" class="btn btn-lg btn-block my-4 w-100 btns_blue ">Add
+                        Pet</button>
                 </form>
             </div>
         </div>

@@ -77,7 +77,7 @@ const addPet = async (req, res) => {
                 //check if the dog name exixt for id_user
                 petModel.find({ name: req.body.name, user_id: getuserId }, async (err, data) => {
                     if (data.length >= 1) { // 1 meens found a match 
-                        res.status(400).json({ message: "pet name already in system for the user", code: "duplicate" });
+                        res.status(402).json({ message: "pet name already in system for the user", code: "duplicate" });
                     }
                     else {
                         //add pet

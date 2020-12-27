@@ -25,7 +25,6 @@ const petSchema = new mongoose.Schema({
   },
   gender:{
     type:String,
-    required:true
   },
   activityLevel:{
     type:Number,

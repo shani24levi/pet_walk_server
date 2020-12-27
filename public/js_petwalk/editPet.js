@@ -9,9 +9,9 @@ $(() => {
 const setFormVals = (data) => {
     let dataBody = {
         name: $("#id_name").val(data[0].name),
-        img: $(".edit_form img").attr("src", `${data[0].img}`),
-        type: $("#id_type").val(data[0].type),
-        gender: $("#id_gender").val(data[0].gender),
+        img: (data[0].img==undefined) ? $(".edit_form img").attr("src", "https://icon-library.com/images/dog-icon/dog-icon-16.jpg") : $(".edit_form img").attr("src", `${data[0].img}`),
+        type: $("#id_type option:selected").val(data[0].type),
+        gender: $("#id_gender option:selected").val(data[0].gender),
         age: $("#id_age").val(data[0].age),
         weight: $("#id_weight").val(data[0].weight),
         dayPlan: $("#id_dayPlan").val(data[0].dayPlan),
@@ -40,6 +40,7 @@ const init = async () => {
     setFormVals(data);
 
     $("main #loading").html(``);
+
 
     $("#id_form").on("submit", (evt) => {
         console.log("works");
@@ -80,7 +81,7 @@ const init = async () => {
         //end section 1 
 
 
-        //section 2- chacks valus for reqired elements 
+        //section 2- chacks valus for reqired elements
         if (dataBodyVal.name == '') {
             $("#id_name").next().removeClass("d-none");
             ifSend = false;
@@ -157,7 +158,7 @@ const init = async () => {
             $("#id_hobbies").next().removeClass("d-none");
             ifSend = false;
         }
-        //end section 1 
+        //end section 2 
 
 
         if (ifSend) {
