@@ -5,8 +5,8 @@ $(() => {
 const init = async () => {
     $("#id_form").on("submit", (evt) => {
         evt.preventDefault();
-        let myUrl = "http://localhost:5000/pets";
-        // let myUrl = "/users/login";
+        // let myUrl = "http://localhost:5000/pets";
+        let myUrl = "/pets";
         let ifSend = true;
 
         //required element in object:
@@ -132,7 +132,7 @@ const init = async () => {
         if (ifSend) {
             axios({
                 method: 'POST',
-                url: "http://localhost:5000/pets",
+                url: myUrl,
                 data: newPet,
                 headers: {
                     "x-auth-token": localStorage["token"],
@@ -143,7 +143,6 @@ const init = async () => {
                     window.location.href = "myPets.html";
                 })
                 .catch(error => {
-                    console.log(newPet);
                     console.log(error.response);
 
                     if (error.response.status == 402) {
