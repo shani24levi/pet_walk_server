@@ -21,7 +21,8 @@ const init = async () => {
     let data = await auth();
     console.log(data);
     if (data.status == "ok") {
-        let url = "http://localhost:5000/pets/ofUser";
+        let url = "/pets/ofUser";
+        // let url = "http://localhost:5000/pets/ofUser";
         let data = await doApiGet(url);
         console.log(data);
         console.log(data.length);

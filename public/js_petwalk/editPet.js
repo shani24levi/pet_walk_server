@@ -34,7 +34,8 @@ const init = async () => {
 
     let pet = getLocalStorag();
     //set val from db into form vals:
-    let url = `http://localhost:5000/pets/ofUser/${pet.id}`;
+    let url = `/pets/ofUser/${pet.id}`;
+    // let url = `http://localhost:5000/pets/ofUser/${pet.id}`;
     let data = await doApiGet(url);
     console.log(data);
     setFormVals(data);
