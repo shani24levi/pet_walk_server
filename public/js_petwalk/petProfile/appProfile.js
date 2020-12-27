@@ -29,7 +29,8 @@ const deletePet = async () => {
         alert("Are you sure?!");
         if (alert) {
             let pet = getLocalStorag();
-            let myUrl = `http://localhost:5000/pets/${pet.id}`;
+            let myUrl = `/pets/${pet.id}`;
+            // let myUrl = `http://localhost:5000/pets/${pet.id}`;
             axios({
                 method: 'DELETE',
                 url: myUrl,
@@ -68,7 +69,8 @@ const init = async () => {
       </div>
       <div></div>`);
 
-    let url = `http://localhost:5000/pets/ofUser/${pet.id}`;
+    let url = `/pets/ofUser/${pet.id}`;
+    // let url = `http://localhost:5000/pets/ofUser/${pet.id}`;
     let data = await doApiGet(url);
     console.log(data);
     createPetProfile(data);
