@@ -46,8 +46,8 @@ const init = async () => {
     $("#id_form").on("submit", (evt) => {
         console.log("works");
         evt.preventDefault();
-        let myUrl = "http://localhost:5000/pets";
-        // let myUrl = "/users/login";
+        let myUrl = "/pets";
+        // let myUrl = "http://localhost:5000/pets";
         let ifSend = true;
 
         //required only set in object:
@@ -178,7 +178,7 @@ const init = async () => {
                     console.log(dataBodyVal);
                     console.log(error.response);
 
-                    if (error.response.status == Number(401)) {
+                    if (error.response.status == 401) {
                         alert('ser is not the pets owner,Unauthorized to edit');
                     }
                     if (error.response.data[0].message == '"type" must be a string') {
