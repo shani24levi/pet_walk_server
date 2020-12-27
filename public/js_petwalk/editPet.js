@@ -84,7 +84,7 @@ const init = async () => {
         //section 2- chacks valus for reqired elements
         if (dataBodyVal.name == '') {
             $("#id_name").next().removeClass("d-none");
-            ifSend = false;
+            ifSend = false ;
         }
 
         if (dataBodyVal.name < 2) {
