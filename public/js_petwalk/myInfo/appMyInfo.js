@@ -9,8 +9,6 @@ $(() => {
     //declareViewEvents();
 })
 
-
-
 const init = async () => {
     $("main .my_pets").html(`
     <div></div>
@@ -19,21 +17,21 @@ const init = async () => {
       </div>
       <div></div>`);
 
-    // let data = await auth();
-    // console.log(data);
-    // if (data.status == "ok") {
-        let url = "http://localhost:5000/pets/ofUser";
+    let data = await auth();
+    console.log(data);
+    if (data.status == "ok") {
+        let url = "/pets/ofUser";
+        //let url = "http://localhost:5000/pets/ofUser";
         let data = await doApiGet(url);
         console.log(data);
         console.log(data.length);
         createPet(data , 0 , data.length);
-    //   }
+      }
 }
 
 // const declareViewEvents = () => {
 //     $("#id_start_walk").on("click", () => {
 //         //lightBoxs()
-//         //TODO: לעשות ולדיזאציה קצת יותר מורכבת 
 //         sendEditData()
 //     })
 // }
