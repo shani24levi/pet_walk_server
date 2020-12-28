@@ -29,7 +29,7 @@ const init = async () => {
   }
 }
 
-export const updatMyInfo = async (petName, petId, updatOne, index) => {
+export const updatMyInfo = async () => {
   $("main .my_pets").html(`
   <div></div>
   <div class="text-center mr-3 w-100">
@@ -37,13 +37,19 @@ export const updatMyInfo = async (petName, petId, updatOne, index) => {
     </div>
     <div></div>`);
 
+    let pet = {
+      neme: localStorage.getItem('petName'),
+      id: localStorage.getItem('petId'),
+      update: localStorage.getItem('update'),
+      index :localStorage.getItem('index')
+  }
 
     //get pet information:
-    let url = `/pets/ofUser/${petId}`;
+    let url = `/pets/ofUser/${pet.id}`;
     let data = await doApiGet(url);
 
     let dataBodyVal = {
-      id: petId, //requird for edting in server 
+      id: pet.id, //requird for edting in server 
       name: data[0].name,
       type: data[0].type,
       dayPlan: data[0].dayPlan,
@@ -53,9 +59,9 @@ export const updatMyInfo = async (petName, petId, updatOne, index) => {
   }
 
   //set the value to update
-  if(updatOne == 'currDayPlanLevel') dataBodyVal.currDayPlanLevel= updatOne;
-  else if(updatOne == 'currActivityLevel') dataBodyVal.currActivityLevel= updatOne;
-  else if(updatOne== 'currFoodLevel') dataBodyVal.currFoodLevel= updatOne;
+  if(pet.update == 'currDayPlanLevel') dataBodyVal.currDayPlanLevel= pet.update;
+  else if(pet.update == 'currActivityLevel') dataBodyVal.currActivityLevel= pet.update;
+  else if(pet.update== 'currFoodLevel') dataBodyVal.currFoodLevel= pet.update;
 
   console.log(dataBodyVal);
 
@@ -71,7 +77,7 @@ export const updatMyInfo = async (petName, petId, updatOne, index) => {
     })
       .then(myData => {
         console.log('updated');
-        createPet(data, index, data.length);
+        createPet(data, pet.index, data.length);
       })
       .catch(error => {
         console.log(dataBodyVal);
