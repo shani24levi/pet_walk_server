@@ -65,29 +65,39 @@ export const updatMyInfo = async (updateOne) => {
 
   console.log(dataBodyVal);
 
+
+
+
   //update
-    let urlUpdate = "/pets/ofUser";
     axios({
       method: 'PUT',
-      url: urlUpdate,
+      url: "/pets/ofUser",
       data: dataBodyVal,
       headers: {
-        "x-auth-token": localStorage["token"],
+          "x-auth-token": localStorage["token"],
       }
-    })
+  })
       .then(myData => {
-        console.log('updated');
-        createPet(data, pet.index, data.length);
+          window.location.href = "petProfile.html";
       })
       .catch(error => {
-        console.log(dataBodyVal);
-        console.log(error.response);
+          console.log(dataBodyVal);
+          console.log(error.response);
 
-        if (error.response.status == 500) {
-          alert("Server Error , Try later");
-        }
+          if (error.response.status == 401) {
+              alert('ser is not the pets owner,Unauthorized to edit');
+          }
+          if (error.response.data[0].message == '"type" must be a string') {
+              $("#id_type").next().removeClass("d-none");
+          }
+          // if (error.response.status == 400) {
+          //     $("#id_name").next().next().removeClass("d-none");
+          // }
+          if (error.response.status == 500) {
+              alert("Server Error , Try later");
+          }
       })
-    
+
 }
 
 
