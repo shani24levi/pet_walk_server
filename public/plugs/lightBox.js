@@ -1,3 +1,5 @@
+// import {updatMyInfo} from "../js_petwalk/myInfo/appMyInfo.js";
+
 $.fn.lightBox = function () {
   createLightBox();
 
@@ -33,6 +35,7 @@ const showLightBox = (_img, _txt) => {
 
 const closeLightBox = () => {
   $(".light_box").fadeOut(700);
+  // updatMyInfo($(this).attr("data-id"),$(this).attr("data-id"),$(this).attr("data-this"),$(this).attr("data-i"));
 }
 
 const minos = () => {
