@@ -79,7 +79,7 @@ const createLightBox = () => {
           </div>
         </div>
       </div>
-      <button class="b-close" style="background-color:red;"><i class="fa fa-times" aria-hidden="true" style="font-size:40px;" ></i></button>
+      <button class="b-close" style="background-color:green;"><i class="fa fa-check" aria-hidden="true" style="font-size:40px;" ></i></button>
     </div>
   </div>
   `)

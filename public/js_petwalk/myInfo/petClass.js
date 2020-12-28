@@ -1,8 +1,8 @@
 import { createPet } from "./petManager.js";
-import {} from '../../plugs/lightBox.js'
+import { } from '../../plugs/lightBox.js'
 
 class PetClass {
-    constructor(_parent,_img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel, _currDayPlanLevel, _currActivityLevel, _currFoodLevel, _i, _ar, _dataLength,_id) {
+    constructor(_parent, _img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel, _currDayPlanLevel, _currActivityLevel, _currFoodLevel, _i, _ar, _dataLength, _id) {
         this.parent = _parent;
         this.img = (_img == undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
         this.type = _type;
@@ -76,7 +76,7 @@ class PetClass {
             //else dose nothing 
         })
 
-
+        //one:
         let secDiv = $(`<div class='secDiv'></div>`);
         $(this.parent).append(secDiv);
 
@@ -107,7 +107,7 @@ class PetClass {
         })
 
 
-
+        //two:
         let insidDiv2 = $("<div class='row p-3 my-3 justify-content-between btn_section' style='box-shadow:none'></div>");
         $(secDiv).append(insidDiv2);
 
@@ -121,8 +121,8 @@ class PetClass {
 
         //pricent btn 
         let btnPricent2 = $(` 
-        <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
-        `);
+               <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
+               `);
         $(pricentDiv2).append(btnPricent2);
 
         $(btnPricent2).on("click", () => {
@@ -133,6 +133,8 @@ class PetClass {
         })
 
 
+
+        //tree:
         let insidDiv3 = $("<div class='row p-3 justify-content-between btn_section' style='box-shadow:none'></div>");
         $(secDiv).append(insidDiv3);
 
@@ -145,10 +147,11 @@ class PetClass {
         let pricentDiv3 = $(`<div class='col-4 align-self-center text-center demo'></div>`);
         $(insidDiv3).append(pricentDiv3);
 
+
         //pricent btn 
         let btnPricent3 = $(` 
-        <div id='data-light' data-id=${this.id} data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currFoodLevel}"></div>
-    `);
+               <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currFoodLevel}"></div>
+               `);
         $(pricentDiv3).append(btnPricent3);
 
         $(btnPricent3).on("click", () => {
@@ -157,6 +160,8 @@ class PetClass {
             localStorage.setItem(`update`, `currFoodLevel`);
             localStorage.setItem(`index`, `${this.i}`);
         })
+
+
 
 
         let walkDiv = $("<div class='col-auto text-center'></div>");
