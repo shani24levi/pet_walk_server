@@ -1,26 +1,29 @@
-
-
-$.fn.lightBox = function(){
-
-
+$.fn.lightBox = function () {
   createLightBox();
-  //showLightBox("http://monkeys.co.il/wp-content/uploads/2015/04/b2f09af56404a9b1adfdbdd850ef0dbe_large2-300x187.jpeg","text text text text");
 
-  $(".light_box button").on("click",function(){
+  $(".light_box .b-close").on("click", function () {
     closeLightBox();
   })
-  // רק תמונות שיש להם אטריביוט דאטא לייט יגיבו ללחיצה
-  // עליהם בפלאג אין
-  $("#data-light").on("click",function(){
+
+  $(".light_box #minus-btn").on("click", function () {
+    minos();
+  })
+  $(".light_box #plus-btn").on("click", function () {
+    plus();
+  })
+
+  $('#qty_input').prop('disabled', true);
+
+  $("#data-light").on("click", function () {
     console.log("aaaa")
-    let imgSrc = $(this).attr("data-src");
+    let imgSrc = $(this).attr("data-percent");
     let imgAlt = $(this).attr("data-alt");
-    showLightBox(imgSrc,imgAlt);
+    showLightBox(imgSrc, imgAlt);
   })
 }
 
-const showLightBox = (_img,_txt) => {
-  $(".light_box .light_img").attr("src",_img);
+const showLightBox = (_img, _txt) => {
+  $(".light_box .light_img").attr("value", _img);
   $(".light_box .light_txt").html(_txt);
 
 
@@ -30,20 +33,65 @@ const showLightBox = (_img,_txt) => {
 
 const closeLightBox = () => {
   $(".light_box").fadeOut(700);
-
 }
- 
+
+const minos = () => {
+  $('#minus-btn').click(function () {
+    $('#qty_input').val(parseInt($('#qty_input').val()) - 1);
+    if ($('#qty_input').val() == 0) {
+      $('#qty_input').val(1);
+    }
+  });
+}
+
+
+const plus = () => {
+  $('#plus-btn').click(function () {
+    $('#qty_input').val(parseInt($('#qty_input').val()) + 1);
+    if ($('#qty_input').val() == 101) {
+      $('#qty_input').val(100);
+    }
+  });
+}
+
+
 
 const createLightBox = () => {
   $("body").prepend(`
   <div class="light_box">
-  <div class="light_inside">
-    <img class="light_img" src="" class="float-left mr-2 w-50">
-    <p class="light_txt">test</p>
-    <button>Close</button>
+    <div class="light_inside">
+
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button class="btn btn-dark btn-sm mr-2" id="minus-btn" style="border-radius: 50%; background-color: #6EA8FF"><i class="fa fa-minus" style="font-size:40px;"></i></button>
+                </div>
+                <input type="number" id="qty_input" class="light_img form-control form-control-sm text-center" style="font-size:20px" value="1" min="1">
+                <div class="input-group-prepend">
+                    <button class="btn btn-dark btn-sm ml-2" id="plus-btn" style="border-radius: 50%; background-color: #6EA8FF"><i class="fa fa-plus" style="font-size:40px;"></i></button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="light_txt">test</p>
+      <button class="b-close" style="background-color:red;"><i class="fa fa-times" aria-hidden="true" style="font-size:40px;" ></i></button>
+    </div>
   </div>
-</div>
   `)
+
+  // const createLightBox = () => {
+  //   $("body").prepend(`
+  //   <div class="light_box">
+  //   <div class="light_inside">
+  //     <img class="light_img" src="" class="float-left mr-2 w-50">
+  //     <p class="light_txt">test</p>
+  //     <button>Close</button>
+  //   </div>
+  // </div>
+  //   `)
 
 
   let lightCss = {
@@ -57,7 +105,6 @@ const createLightBox = () => {
     alignItems: "center",
     padding: "8px"
   }
-  // ואז לתת לאלמנט את האובייקט עם כל המאפיינים
   $(".light_box").css(lightCss);
 
   let insideCss = {
@@ -66,16 +113,8 @@ const createLightBox = () => {
     background: "white",
     border: "2px solid grey",
     minHeight: "300px",
-    padding:"8px",
-    textAlign:"center"
-    // height:"300px"
+    padding: "8px",
+    textAlign: "center"
   }
-
   $(".light_inside").css(insideCss);
 }
-
-
-// $(() => {
-//   $(document).lightBox()
-
-// })
