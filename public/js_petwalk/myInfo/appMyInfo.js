@@ -29,6 +29,32 @@ const init = async () => {
   }
 }
 
+const putApi = async (dataBodyVal) => {
+  //update
+  axios({
+    method: 'PUT',
+    url: "/pets/ofUser/",
+    data: dataBodyVal,
+    headers: {
+        "x-auth-token": localStorage["token"],
+    }
+})
+    .then(myData => {
+        window.location.href = "petProfile.html";
+    })
+    .catch(error => {
+        console.log(dataBodyVal);
+        console.log(error.response);
+
+        if (error.response.status == 404) {
+            alert(error.response);
+        }
+        if (error.response.status == 500) {
+            alert("Server Error , Try later");
+        }
+    })
+
+}
 export const updatMyInfo = async (updateOne) => {
   $("main .my_pets").html(`
   <div></div>
@@ -64,40 +90,7 @@ export const updatMyInfo = async (updateOne) => {
   else if(pet.update== 'currFoodLevel') dataBodyVal.currFoodLevel= Number(updateOne);
 
   console.log(dataBodyVal);
-
-
-
-
-  //update
-    axios({
-      method: 'PUT',
-      url: "/pets/ofUser",
-      data: dataBodyVal,
-      headers: {
-          "x-auth-token": localStorage["token"],
-      }
-  })
-      .then(myData => {
-          window.location.href = "petProfile.html";
-      })
-      .catch(error => {
-          console.log(dataBodyVal);
-          console.log(error.response);
-
-          if (error.response.status == 401) {
-              alert('ser is not the pets owner,Unauthorized to edit');
-          }
-          if (error.response.data[0].message == '"type" must be a string') {
-              $("#id_type").next().removeClass("d-none");
-          }
-          // if (error.response.status == 400) {
-          //     $("#id_name").next().next().removeClass("d-none");
-          // }
-          if (error.response.status == 500) {
-              alert("Server Error , Try later");
-          }
-      })
-
+  putApi(dataBodyVal);
 }
 
 
