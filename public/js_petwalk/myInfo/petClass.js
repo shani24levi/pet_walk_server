@@ -1,4 +1,5 @@
 import { createPet } from "./petManager.js";
+import {} from '../../plugs/lightBox.js'
 
 class PetClass {
     constructor(_parent, _img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel, _currDayPlanLevel, _currActivityLevel, _currFoodLevel, _i, _ar, _dataLength) {

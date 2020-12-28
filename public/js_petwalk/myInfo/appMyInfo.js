@@ -1,6 +1,7 @@
 import {doApiGet} from "../../services/apiSer.js";
 import { auth } from "../../services/authSer.js";
 import { createPet } from "./petManager.js";
+import {} from '../../plugs/lightBox.js';
 
 
 $(() => {
