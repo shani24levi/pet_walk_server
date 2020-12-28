@@ -2,10 +2,9 @@ import { createPet } from "./petManager.js";
 import {} from '../../plugs/lightBox.js'
 
 class PetClass {
-    constructor(_parent,_id, _img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel, _currDayPlanLevel, _currActivityLevel, _currFoodLevel, _i, _ar, _dataLength) {
+    constructor(_parent,_img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel, _currDayPlanLevel, _currActivityLevel, _currFoodLevel, _i, _ar, _dataLength) {
         this.parent = _parent;
         this.img = (_img == undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
-        this.id = _id;
         this.type = _type;
         this.name = _name;
         this.age = (!_age) ? "Forever Young" : _age;
@@ -94,7 +93,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent = $(` 
-        <div id='data-light' data-i='${this.i}' data-this='currDayPlanLevel' data-id=${this.id} data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currDayPlanLevel}"></div>
+        <div id='data-light' data-this='currDayPlanLevel' data-id=${this.id} data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currDayPlanLevel}"></div>
         `);
         $(pricentDiv).append(btnPricent);
 
