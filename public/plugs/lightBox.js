@@ -35,10 +35,15 @@ const showLightBox = (_img, _txt) => {
 
 const closeLightBox = () => {
   $(".light_box").fadeOut(700);
-  console.log('id', $(this).attr("data-id"));
-  console.log('name',$(this).attr("data-name"));
+  let name= $(this).attr("data-name");
+  let id= $(this).attr("data-id");
+  let this1= $(this).attr("data-this");
+
+
+  console.log('id', id);
+  console.log('name',name);
   console.log('this',$(this).attr("data-this"));
-  console.log($(this).attr("data-i"));
+  console.log(this1);
 
   updatMyInfo($(this).attr("data-name"),$(this).attr("data-id"),$(this).attr("data-this"),$(this).attr("data-i"));
 }
