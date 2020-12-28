@@ -97,10 +97,6 @@ class PetClass {
         `);
         $(pricentDiv).append(btnPricent);
 
-        // $(btnPricent).on("click", () => {
-        //     console.log('upate peicent');
-        // })
-
 
         let insidDiv2 = $("<div class='row p-3 my-3 justify-content-between btn_section' style='box-shadow:none'></div>");
         $(secDiv).append(insidDiv2);
@@ -115,7 +111,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent2 = $(` 
-        <div class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
+        <div id='data-light' data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
         `);
         $(pricentDiv2).append(btnPricent2);
 
@@ -133,7 +129,7 @@ class PetClass {
         <h5>${this.complitFood} meals were completed</h5>
     </div>`)
 
-        let pricentDiv3 = $("<div class='col-4 align-self-center text-center demo'></div>");
+        let pricentDiv3 = $(`<div  id='data-light' data-src=${this.img} data-alt=${this.i} class='col-4 align-self-center text-center demo'></div>`);
         $(insidDiv3).append(pricentDiv3);
 
         //pricent btn 
@@ -165,6 +161,10 @@ class PetClass {
         // function set in pet_walk_app in Plangs folder-> jquery.circlechart.js
         // sorce:  https://www.jqueryscript.net/loading/Create-Percentage-Circles-with-jQuery-CSS3-percircle-js.html
         $('.demo-1').percentcircle();
+
+        //lightbox
+        $(document).lightBox();
+
     }
 }
 

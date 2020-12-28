@@ -95,23 +95,14 @@ body{background: #E5E5E5;}
     background-color: #E5E5E5;
 }
 
-
-@media screen and (min-width:768px){
-    .img_pet{
-        max-width:70%;
-    }
+.img_pet{
+    max-width:50%;
 }
 
-@media screen and (max-width:768px){
-    .img_pet{
-        max-width:100%;
-    }
-
-}
 
 @media screen and (max-width:450px){
     .img_pet{
-        max-width:150%;
+        max-width:70%;
     }
  
 }
