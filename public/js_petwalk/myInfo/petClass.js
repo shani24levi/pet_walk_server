@@ -98,7 +98,7 @@ class PetClass {
         $(pricentDiv).append(btnPricent);
 
         $(btnPricent).on("click", () => {
-            console.log(lcal);
+            console.log("lcal");
             localStorage.setItem(`petName`, `${this.name}`);
             localStorage.setItem(`petId`, `${this.arr._id}`);
             localStorage.setItem(`update`, `currDayPlanLevel`);
