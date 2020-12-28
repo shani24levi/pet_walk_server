@@ -93,7 +93,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent = $(` 
-        <div id='data-light' data-i=${this.ar._id} data-this='currDayPlanLevel' data-id=${this.id} data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currDayPlanLevel}"></div>
+        <div id='data-light' data-id=${this.ar._id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currDayPlanLevel}"></div>
         `);
         $(pricentDiv).append(btnPricent);
 

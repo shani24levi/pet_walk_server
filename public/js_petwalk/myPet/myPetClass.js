@@ -1,4 +1,3 @@
-
 class MyPetClass {
     constructor(_parent, _img, _type, _name, _age, _id) {
         this.parent = _parent;
@@ -32,10 +31,8 @@ class MyPetClass {
         $(newDiv).append(btnRight);
 
         $(btnRight).on("click", () => {
-            //using local storag to send the info pet clicked 
             localStorage.setItem(`petName`, `${this.name}`);
             localStorage.setItem(`petId`, `${this.id}`);
-
             window.location.href = "petProfile.html";
         })
     }

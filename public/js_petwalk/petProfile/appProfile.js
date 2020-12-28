@@ -8,7 +8,7 @@ $(() => {
     deletePet();
 })
 
-const clearLocalStorag = () => {
+export const clearLocalStorag = () => {
     $("#id_clear_storag").on("click", () => {
         localStorage.removeItem('petName');
         localStorage.removeItem('petId');

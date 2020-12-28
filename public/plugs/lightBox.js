@@ -35,7 +35,12 @@ const showLightBox = (_img, _txt) => {
 
 const closeLightBox = () => {
   $(".light_box").fadeOut(700);
-  updatMyInfo($(this).attr("data-id"),$(this).attr("data-id"),$(this).attr("data-this"),$(this).attr("data-i"));
+  console.log('id', $(this).attr("data-id"));
+  console.log('name',$(this).attr("data-name"));
+  console.log('this',$(this).attr("data-this"));
+  console.log($(this).attr("data-i"));
+
+  updatMyInfo($(this).attr("data-name"),$(this).attr("data-id"),$(this).attr("data-this"),$(this).attr("data-i"));
 }
 
 const minos = () => {
