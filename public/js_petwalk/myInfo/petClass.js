@@ -75,7 +75,7 @@ class PetClass {
 
 
         //KD
-        let secDiv = $(`<div id='data-light' data-src=${this.img} data-alt=${this.i} class='secDiv'></div>`);
+        let secDiv = $(`<div class='secDiv'></div>`);
         $(this.parent).append(secDiv);
 
         $(secDiv).append(`<h3 class="mt-4 pb-2">State</h3>`)
@@ -93,7 +93,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent = $(` 
-        <div class="demo-1 align-self-center text-center" data-percent="${this.currDayPlanLevel}"></div>
+        <div id='data-light' data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currDayPlanLevel}"></div>
         `);
         $(pricentDiv).append(btnPricent);
 
