@@ -74,7 +74,7 @@ class PetClass {
         })
 
 
-
+        //KD
         let secDiv = $(`<div id='data-light' data-src=${this.img} data-alt=${this.i} class='secDiv'></div>`);
         $(this.parent).append(secDiv);
 
