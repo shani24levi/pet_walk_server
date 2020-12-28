@@ -1,21 +1,20 @@
 
+
 $.fn.lightBox = function(){
+
+
   createLightBox();
+  //showLightBox("http://monkeys.co.il/wp-content/uploads/2015/04/b2f09af56404a9b1adfdbdd850ef0dbe_large2-300x187.jpeg","text text text text");
 
   $(".light_box button").on("click",function(){
     closeLightBox();
   })
-
-  $(".light_box").on("click",function(){
-    closeLightBox();
-  })
-
- //only img with data-light shows
-  $("div[data-light]").on("click",function(){
-
-    // let imgSrc = $(this).attr("src");
-    let imgSrc = $(this).attr("data-address");
-    let imgAlt = $(this).attr("data-address");
+  // רק תמונות שיש להם אטריביוט דאטא לייט יגיבו ללחיצה
+  // עליהם בפלאג אין
+  $("#data-light").on("click",function(){
+    console.log("aaaa")
+    let imgSrc = $(this).attr("data-src");
+    let imgAlt = $(this).attr("data-alt");
     showLightBox(imgSrc,imgAlt);
   })
 }
@@ -31,6 +30,7 @@ const showLightBox = (_img,_txt) => {
 
 const closeLightBox = () => {
   $(".light_box").fadeOut(700);
+
 }
  
 
@@ -38,20 +38,12 @@ const createLightBox = () => {
   $("body").prepend(`
   <div class="light_box">
   <div class="light_inside">
-    <img class="light_img" src="" class="float-left mr-2" style="width:100%">
-    <button class="close_btn"><i class="fa fa-times" aria-hidden="true"></i></button>
+    <img class="light_img" src="" class="float-left mr-2 w-50">
+    <p class="light_txt">test</p>
+    <button>Close</button>
   </div>
 </div>
   `)
-
-
-  let closeCss={
-    borderRadius: "50%",
-    position: "absolute",
-    marginTop: "-20px",
-    marginLeft: "-10px"
-  }
-  $(".close_btn").css(closeCss);
 
 
   let lightCss = {
@@ -65,14 +57,15 @@ const createLightBox = () => {
     alignItems: "center",
     padding: "8px"
   }
-
+  // ואז לתת לאלמנט את האובייקט עם כל המאפיינים
   $(".light_box").css(lightCss);
 
   let insideCss = {
     maxWidth: "600px",
-    width: "80%",
+    width: "100%",
     background: "white",
     border: "2px solid grey",
+    minHeight: "300px",
     padding:"8px",
     textAlign:"center"
     // height:"300px"
@@ -80,3 +73,9 @@ const createLightBox = () => {
 
   $(".light_inside").css(insideCss);
 }
+
+
+// $(() => {
+//   $(document).lightBox()
+
+// })
