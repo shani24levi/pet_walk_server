@@ -35,7 +35,6 @@ const showLightBox = (_img, _txt) => {
 
 const closeLightBox = () => {
   $(".light_box").fadeOut(700);
-  console.log($('#qty_input').val());
   updatMyInfo($('#qty_input').val());
 }
 
@@ -81,7 +80,6 @@ const createLightBox = () => {
           </div>
         </div>
       </div>
-      <p class="light_txt">test</p>
       <button class="b-close" style="background-color:red;"><i class="fa fa-times" aria-hidden="true" style="font-size:40px;" ></i></button>
     </div>
   </div>
