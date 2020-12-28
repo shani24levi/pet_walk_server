@@ -33,7 +33,7 @@ const putApi = async (dataBodyVal) => {
   //update
   axios({
     method: 'PUT',
-    url: "/pets/ofUser/",
+    url: "/pets/",
     data: dataBodyVal,
     headers: {
         "x-auth-token": localStorage["token"],
