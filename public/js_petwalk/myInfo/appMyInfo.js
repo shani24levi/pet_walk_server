@@ -29,6 +29,14 @@ const init = async () => {
   }
 }
 
+export const showUpdat = async (updateOne) => {
+  let url = "/pets/ofUser";
+  let data = await doApiGet(url);
+  console.log(data);
+  console.log(data.length);
+  createPet(data, updateOne, data.length);
+}
+
 export const updatMyInfo = async (updateOne) => {
   $("main .my_pets").html(`
   <div></div>
@@ -73,7 +81,7 @@ export const updatMyInfo = async (updateOne) => {
     }
 })
     .then(myData => {
-      createPet(data, pet.index, data.length);
+      showUpdat(pet.index)
     })
     .catch(error => {
         console.log(dataBodyVal);
