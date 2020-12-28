@@ -59,9 +59,9 @@ export const updatMyInfo = async (updateOne) => {
   }
 
   //set the value to update
-  if(pet.update == 'currDayPlanLevel') dataBodyVal.currDayPlanLevel= updateOne;
-  else if(pet.update == 'currActivityLevel') dataBodyVal.currActivityLevel= updateOne;
-  else if(pet.update== 'currFoodLevel') dataBodyVal.currFoodLevel= updateOne;
+  if(pet.update == 'currDayPlanLevel') dataBodyVal.currDayPlanLevel= Number(updateOne);
+  else if(pet.update == 'currActivityLevel') dataBodyVal.currActivityLevel= Number(updateOne);
+  else if(pet.update== 'currFoodLevel') dataBodyVal.currFoodLevel= Number(updateOne);
 
   console.log(dataBodyVal);
 
