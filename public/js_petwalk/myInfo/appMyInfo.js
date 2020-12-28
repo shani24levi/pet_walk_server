@@ -62,10 +62,10 @@ export const updatMyInfo = async (petName, petId, updatOne, index) => {
   console.log(dataBodyVal);
 
   //update
-    let url = "/pets/ofUser";
+    let urlUpdate = "/pets/ofUser";
     axios({
       method: 'PUT',
-      url: myUrl,
+      url: urlUpdate,
       data: dataBodyVal,
       headers: {
         "x-auth-token": localStorage["token"],
