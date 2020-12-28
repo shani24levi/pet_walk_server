@@ -2,7 +2,7 @@ import { createPet } from "./petManager.js";
 import {} from '../../plugs/lightBox.js'
 
 class PetClass {
-    constructor(_parent,_img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel, _currDayPlanLevel, _currActivityLevel, _currFoodLevel, _i, _ar, _dataLength) {
+    constructor(_parent,_img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel, _currDayPlanLevel, _currActivityLevel, _currFoodLevel, _i, _ar, _dataLength,_id) {
         this.parent = _parent;
         this.img = (_img == undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
         this.type = _type;
@@ -12,6 +12,8 @@ class PetClass {
         this.activityLevel = _activityLevel;
         this.foodLevel = _foodLevel;
         this.dayPlanLevel = _dayPlanLevel;
+        this.id = _id;
+
 
         this.currDayPlanLevel = (_currDayPlanLevel == undefined) ? 0 : _currDayPlanLevel;
         this.currActivityLevel = (_currActivityLevel == undefined) ? 0 : _currActivityLevel;
@@ -93,14 +95,14 @@ class PetClass {
 
         //pricent btn 
         let btnPricent = $(` 
-        <div id='data-light' data-id=${this.ar._id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currDayPlanLevel}"></div>
+        <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currDayPlanLevel}"></div>
         `);
         $(pricentDiv).append(btnPricent);
 
         $(btnPricent).on("click", () => {
             console.log("lcal");
             localStorage.setItem(`petName`, `${this.name}`);
-            localStorage.setItem(`petId`, `${this.arr._id}`);
+            localStorage.setItem(`petId`, `${this.id}`);
             localStorage.setItem(`update`, `currDayPlanLevel`);
             localStorage.setItem(`index`, `${this.i}`);
         })
