@@ -35,7 +35,8 @@ const showLightBox = (_img, _txt) => {
 
 const closeLightBox = () => {
   $(".light_box").fadeOut(700);
-  updatMyInfo();
+  console.log($('#qty_input').val());
+  updatMyInfo($('#qty_input').val());
 }
 
 const minos = () => {

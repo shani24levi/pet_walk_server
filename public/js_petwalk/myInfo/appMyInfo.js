@@ -29,7 +29,7 @@ const init = async () => {
   }
 }
 
-export const updatMyInfo = async () => {
+export const updatMyInfo = async (updateOne) => {
   $("main .my_pets").html(`
   <div></div>
   <div class="text-center mr-3 w-100">
@@ -59,9 +59,9 @@ export const updatMyInfo = async () => {
   }
 
   //set the value to update
-  if(pet.update == 'currDayPlanLevel') dataBodyVal.currDayPlanLevel= pet.update;
-  else if(pet.update == 'currActivityLevel') dataBodyVal.currActivityLevel= pet.update;
-  else if(pet.update== 'currFoodLevel') dataBodyVal.currFoodLevel= pet.update;
+  if(pet.update == 'currDayPlanLevel') dataBodyVal.currDayPlanLevel= updateOne;
+  else if(pet.update == 'currActivityLevel') dataBodyVal.currActivityLevel= updateOne;
+  else if(pet.update== 'currFoodLevel') dataBodyVal.currFoodLevel= updateOne;
 
   console.log(dataBodyVal);
 
