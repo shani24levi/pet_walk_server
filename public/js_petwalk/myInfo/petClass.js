@@ -100,7 +100,6 @@ class PetClass {
         $(pricentDiv).append(btnPricent);
 
         $(btnPricent).on("click", () => {
-            console.log("lcal");
             localStorage.setItem(`petName`, `${this.name}`);
             localStorage.setItem(`petId`, `${this.id}`);
             localStorage.setItem(`update`, `currDayPlanLevel`);
@@ -122,9 +121,17 @@ class PetClass {
 
         //pricent btn 
         let btnPricent2 = $(` 
-        <div id='data-light' data-id=${this.id} data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
+        <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
         `);
         $(pricentDiv2).append(btnPricent2);
+
+        $(btnPricent2).on("click", () => {
+            localStorage.setItem(`petName`, `${this.name}`);
+            localStorage.setItem(`petId`, `${this.id}`);
+            localStorage.setItem(`update`, `currActivityLevel`);
+            localStorage.setItem(`index`, `${this.i}`);
+        })
+
 
         let insidDiv3 = $("<div class='row p-3 justify-content-between btn_section' style='box-shadow:none'></div>");
         $(secDiv).append(insidDiv3);
@@ -135,14 +142,21 @@ class PetClass {
         <h5>${this.complitFood} meals were completed</h5>
         </div>`)
 
-        let pricentDiv3 = $(`<div  id='data-light' data-src=${this.img} data-alt=${this.i} class='col-4 align-self-center text-center demo'></div>`);
+        let pricentDiv3 = $(`<div class='col-4 align-self-center text-center demo'></div>`);
         $(insidDiv3).append(pricentDiv3);
 
         //pricent btn 
         let btnPricent3 = $(` 
-    <div id='data-light' data-id=${this.id} data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currFoodLevel}"></div>
+        <div id='data-light' data-id=${this.id} data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currFoodLevel}"></div>
     `);
         $(pricentDiv3).append(btnPricent3);
+
+        $(btnPricent3).on("click", () => {
+            localStorage.setItem(`petName`, `${this.name}`);
+            localStorage.setItem(`petId`, `${this.id}`);
+            localStorage.setItem(`update`, `currFoodLevel`);
+            localStorage.setItem(`index`, `${this.i}`);
+        })
 
 
         let walkDiv = $("<div class='col-auto text-center'></div>");
