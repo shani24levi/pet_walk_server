@@ -2,8 +2,6 @@ import { doApiGet } from "../../services/apiSer.js";
 import { auth } from "../../services/authSer.js";
 import { createPet } from "./petManager.js";
 import { } from '../../plugs/lightBox.js';
-import {setLocalStorage} from '../myPet/appMyPet.js';
-
 
 $(() => {
   init();
@@ -39,13 +37,13 @@ export const updatMyInfo = async (petName, petId, updatOne, index) => {
     </div>
     <div></div>`);
 
-    let pet = setLocalStorage(petName, petId);
+
     //get pet information:
-    let url = `/pets/ofUser/${pet.id}`;
+    let url = `/pets/ofUser/${petId}`;
     let data = await doApiGet(url);
 
     let dataBodyVal = {
-      id: pet.id, //requird for edting in server 
+      id: petId, //requird for edting in server 
       name: data[0].name,
       type: data[0].type,
       dayPlan: data[0].dayPlan,
@@ -74,9 +72,6 @@ export const updatMyInfo = async (petName, petId, updatOne, index) => {
       .then(myData => {
         console.log('updated');
         createPet(data, index, data.length);
-        //clear
-        localStorage.removeItem('petName');
-        localStorage.removeItem('petId');
       })
       .catch(error => {
         console.log(dataBodyVal);
