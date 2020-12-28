@@ -35,6 +35,11 @@ export const showUpdat = async (updateOne) => {
   console.log(data);
   console.log(data.length);
   createPet(data, updateOne, data.length);
+  //clare:
+  localStorage.removeItem('petName');
+  localStorage.removeItem('petId');
+  localStorage.removeItem('index');
+  localStorage.removeItem('update');
 }
 
 export const updatMyInfo = async (updateOne) => {
@@ -84,9 +89,6 @@ export const updatMyInfo = async (updateOne) => {
       showUpdat(pet.index)
     })
     .catch(error => {
-        console.log(dataBodyVal);
-        console.log(error.response);
-
         if (error.response.status == 404) {
             alert(error.response);
         }
