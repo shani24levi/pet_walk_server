@@ -76,12 +76,12 @@ class PetClass {
             //else dose nothing 
         })
 
-        //one:
+
         let secDiv = $(`<div class='secDiv'></div>`);
         $(this.parent).append(secDiv);
 
         $(secDiv).append(`<h3 class="mt-4 pb-2">State</h3>`)
-
+        //one:
         let insidDiv = $(`<div class='row p-3 justify-content-between btn_section' style='box-shadow:none'></div>`)
         $(secDiv).append(insidDiv);
 
@@ -106,6 +106,31 @@ class PetClass {
             localStorage.setItem(`index`, `${this.i}`);
         })
 
+             //one:2:
+             let insidDiv22 = $(`<div class='row p-3 justify-content-between btn_section' style='box-shadow:none'></div>`)
+             $(secDiv).append(insidDiv22);
+     
+             $(insidDiv22).append(`<div class="col-8 align-self-center p-2">
+                 <h4><strong>Today's Plans</strong></h4>
+                 <h5>${this.complitActivity} tasks completed</h5>
+             </div>`)
+     
+             let pricentDiv22 = $("<div class='col-4 align-self-center text-center demo'></div>");
+             $(insidDiv22).append(pricentDiv22);
+     
+             //pricent btn 
+             let btnPricent22 = $(` 
+             <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
+             `);
+             $(pricentDiv22).append(btnPricent22);
+     
+             $(btnPricent22).on("click", () => {
+                 localStorage.setItem(`petName`, `${this.name}`);
+                 localStorage.setItem(`petId`, `${this.id}`);
+                 localStorage.setItem(`update`, `currActivityLevel`);
+                 localStorage.setItem(`index`, `${this.i}`);
+             })
+
 
         //two:
         let insidDiv2 = $("<div class='row p-3 my-3 justify-content-between btn_section' style='box-shadow:none'></div>");
@@ -126,6 +151,7 @@ class PetClass {
         $(pricentDiv2).append(btnPricent2);
 
         $(btnPricent2).on("click", () => {
+            console.log('222');
             localStorage.setItem(`petName`, `${this.name}`);
             localStorage.setItem(`petId`, `${this.id}`);
             localStorage.setItem(`update`, `currActivityLevel`);
