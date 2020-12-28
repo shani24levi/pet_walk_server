@@ -1,4 +1,4 @@
-import {updatMyInfo} from "../js_petwalk/myInfo/appMyInfo.js";
+import { updatMyInfo } from "../js_petwalk/myInfo/appMyInfo.js";
 
 $.fn.lightBox = function () {
   createLightBox();
@@ -38,25 +38,21 @@ const closeLightBox = () => {
   updatMyInfo($('#qty_input').val());
 }
 
+
 const minos = () => {
-  $('#minus-btn').click(function () {
-    $('#qty_input').val(parseInt($('#qty_input').val()) - 1);
-    console.log($('#qty_input').val());
-    if ($('#qty_input').val() == 0) {
-      $('#qty_input').val(1);
-    }
-  });
+  $('#qty_input').val(parseInt($('#qty_input').val()) - 1);
+  console.log($('#qty_input').val());
+  if ($('#qty_input').val() == 0) {
+    $('#qty_input').val(1);
+  }
 }
 
-
 const plus = () => {
-  $('#plus-btn').click(function () {
-    $('#qty_input').val(parseInt($('#qty_input').val()) + 1);
-    console.log($('#qty_input').val());
-    if ($('#qty_input').val() == 101) {
-      $('#qty_input').val(100);
-    }
-  });
+  $('#qty_input').val(parseInt($('#qty_input').val()) + 1);
+  console.log($('#qty_input').val());
+  if ($('#qty_input').val() == 101) {
+    $('#qty_input').val(100);
+  }
 }
 
 
