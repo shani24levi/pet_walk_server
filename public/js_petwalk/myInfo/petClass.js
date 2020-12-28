@@ -1,9 +1,9 @@
 import { createPet } from "./petManager.js";
 
 class PetClass {
-    constructor(_parent,_img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel,_currDayPlanLevel,_currActivityLevel,_currFoodLevel, _i, _ar, _dataLength) {
+    constructor(_parent, _img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel, _currDayPlanLevel, _currActivityLevel, _currFoodLevel, _i, _ar, _dataLength) {
         this.parent = _parent;
-        this.img = (_img== undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
+        this.img = (_img == undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
         this.type = _type;
         this.name = _name;
         this.age = (!_age) ? "Forever Young" : _age;
@@ -12,20 +12,20 @@ class PetClass {
         this.foodLevel = _foodLevel;
         this.dayPlanLevel = _dayPlanLevel;
 
-        this.currDayPlanLevel = (_currDayPlanLevel == undefined) ? 0 :  _currDayPlanLevel;
-        this.currActivityLevel = (_currActivityLevel == undefined) ? 0 :  _currActivityLevel;
-        this.currFoodLevel = (_currFoodLevel == undefined) ? 0 :  _currFoodLevel;
+        this.currDayPlanLevel = (_currDayPlanLevel == undefined) ? 0 : _currDayPlanLevel;
+        this.currActivityLevel = (_currActivityLevel == undefined) ? 0 : _currActivityLevel;
+        this.currFoodLevel = (_currFoodLevel == undefined) ? 0 : _currFoodLevel;
 
         this.i = _i;
-        this.lenthData = _dataLength-1;
+        this.lenthData = _dataLength - 1;
         this.ar = _ar;
 
-        this.complitDayPlan = this.currDayPlanLevel==0 ? this.currDayPlanLevel : Math.ceil(this.currDayPlanLevel/(100/this.dayPlanLevel));
-        this.complitActivity = this.currActivityLevel==0 ? this.currActivityLevel : Math.ceil(this.currActivityLevel/(100/this.activityLevel));
-        this.complitFood = this.currFoodLevel==0 ? this.currFoodLevel : Math.ceil(this.currFoodLevel/(100/this.foodLevel));
+        this.complitDayPlan = this.currDayPlanLevel == 0 ? this.currDayPlanLevel : Math.ceil(this.currDayPlanLevel / (100 / this.dayPlanLevel));
+        this.complitActivity = this.currActivityLevel == 0 ? this.currActivityLevel : Math.ceil(this.currActivityLevel / (100 / this.activityLevel));
+        this.complitFood = this.currFoodLevel == 0 ? this.currFoodLevel : Math.ceil(this.currFoodLevel / (100 / this.foodLevel));
     }
 
-    render() {   
+    render() {
         let newDiv = $("<div class='row p-3 justify-content-between btn_section'></div>");
         $(this.parent).append(newDiv);
 
@@ -37,26 +37,26 @@ class PetClass {
 
         $(btnLeft).on("click", () => {
             if (this.i <= this.lenthData && this.i != 0) {
-                createPet(this.ar, this.i-1, this.lenthData+1);
+                createPet(this.ar, this.i - 1, this.lenthData + 1);
             }
             if (this.i == 0) {
-                createPet(this.ar, this.lenthData, this.lenthData+1);
+                createPet(this.ar, this.lenthData, this.lenthData + 1);
             }
             //else dose nothing 
         })
 
         $(newDiv).append(`
-        <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
-            <img src="${this.img}"
-            alt="Avatar" class="img_pet" style="border: #fff solid; border-radius: 50%; padding: 5%;">
+        <div class="row justify-content-center">
+            <div class="col d-flex justify-content-start">
+                <img src="${this.img}"
+                alt="Avatar" class="img_pet" style="border: #fff solid; border-radius: 50%; padding: 5%;">
+            </div>
+            <div class="col justify-content-end">
+                <h5 class="pt-4 pl-2" style="color: #727377;"> ${this.type}</h5>
+                <h2 class="pl-2">${this.name}</h2>
+                <h5 class="pb-2 pl-2" style="color: #727377;"> age ${this.age}</h5>
+            </div>
         </div>
-        <div class="col-4 justify-content-center">
-            <h5 class="pt-4 pl-2" style="color: #727377;"> ${this.type}</h5>
-            <h2 class="pl-2">${this.name}</h2>
-            <h5 class="pb-2 pl-2" style="color: #727377;"> age ${this.age}</h5>
-        </div>
-        <img data-light="yes" src="images/${this.img}" alt="pizza company">
-
         `)
 
         //right btn 
@@ -67,10 +67,10 @@ class PetClass {
 
         $(btnRight).on("click", () => {
             if (this.i < this.lenthData && this.i != this.lenthData) {
-                createPet(this.ar, this.i+1, this.lenthData+1);
+                createPet(this.ar, this.i + 1, this.lenthData + 1);
             }
             if (this.i == this.lenthData) {
-                createPet(this.ar, 0 , this.lenthData+1);
+                createPet(this.ar, 0, this.lenthData + 1);
             }
             //else dose nothing 
         })
