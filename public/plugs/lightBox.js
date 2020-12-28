@@ -1,4 +1,4 @@
-// import {updatMyInfo} from "../js_petwalk/myInfo/appMyInfo.js";
+import {updatMyInfo} from "../js_petwalk/myInfo/appMyInfo.js";
 
 $.fn.lightBox = function () {
   createLightBox();
@@ -35,7 +35,7 @@ const showLightBox = (_img, _txt) => {
 
 const closeLightBox = () => {
   $(".light_box").fadeOut(700);
-  // updatMyInfo($(this).attr("data-id"),$(this).attr("data-id"),$(this).attr("data-this"),$(this).attr("data-i"));
+  updatMyInfo($(this).attr("data-id"),$(this).attr("data-id"),$(this).attr("data-this"),$(this).attr("data-i"));
 }
 
 const minos = () => {
@@ -51,6 +51,7 @@ const minos = () => {
 const plus = () => {
   $('#plus-btn').click(function () {
     $('#qty_input').val(parseInt($('#qty_input').val()) + 1);
+    log($('#qty_input').val());
     if ($('#qty_input').val() == 101) {
       $('#qty_input').val(100);
     }
