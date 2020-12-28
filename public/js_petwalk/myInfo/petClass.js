@@ -97,6 +97,15 @@ class PetClass {
         `);
         $(pricentDiv).append(btnPricent);
 
+        $(btnPricent).on("click", () => {
+            console.log(lcal);
+            localStorage.setItem(`petName`, `${this.name}`);
+            localStorage.setItem(`petId`, `${this.arr._id}`);
+            localStorage.setItem(`update`, `currDayPlanLevel`);
+            localStorage.setItem(`index`, `${this.i}`);
+        })
+
+
 
         let insidDiv2 = $("<div class='row p-3 my-3 justify-content-between btn_section' style='box-shadow:none'></div>");
         $(secDiv).append(insidDiv2);
