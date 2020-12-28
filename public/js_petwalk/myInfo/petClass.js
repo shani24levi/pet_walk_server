@@ -1,7 +1,6 @@
 import { createPet } from "./petManager.js";
 
 class PetClass {
-            //         .img   .type   .name .age, .dayPlan  .activityLevel,   foodLevel  dayPlanLevel  currDayPlanLevel  currActivityLevel  currFoodLevel, i, _arr, dataLength);
     constructor(_parent,_img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel,_currDayPlanLevel,_currActivityLevel,_currFoodLevel, _i, _ar, _dataLength) {
         this.parent = _parent;
         this.img = (_img== undefined) ? "https://icon-library.com/images/dog-icon/dog-icon-16.jpg" : _img;
@@ -49,7 +48,7 @@ class PetClass {
         $(newDiv).append(`
         <div class="col-4 d-flex justify-content-center">
             <img src="${this.img}"
-            alt="Avatar" class="img_pet" style="border: #fff solid; border-radius: 50%; padding: 5%;">
+            alt="Avatar" class="img_pet" style="max-width: 30%; border: #fff solid; border-radius: 50%; padding: 5%;">
         </div>
         <div class="col-4 justify-content-center">
             <h5 class="pt-4 pl-2" style="color: #727377;"> ${this.type}</h5>

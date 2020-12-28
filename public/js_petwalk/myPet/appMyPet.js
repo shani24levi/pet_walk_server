@@ -8,8 +8,6 @@ $(() => {
     //declareViewEvents();
 })
 
-
-
 const init = async () => {
     $("main .my_pets").html(`
     <div></div>
