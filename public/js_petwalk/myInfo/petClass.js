@@ -46,15 +46,17 @@ class PetClass {
         })
 
         $(newDiv).append(`
-        <div class="col-4 d-flex justify-content-center">
+        <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <img src="${this.img}"
-            alt="Avatar" class="img_pet" style="max-width: 30%; border: #fff solid; border-radius: 50%; padding: 5%;">
+            alt="Avatar" class="img_pet" style="border: #fff solid; border-radius: 50%; padding: 5%;">
         </div>
         <div class="col-4 justify-content-center">
             <h5 class="pt-4 pl-2" style="color: #727377;"> ${this.type}</h5>
             <h2 class="pl-2">${this.name}</h2>
             <h5 class="pb-2 pl-2" style="color: #727377;"> age ${this.age}</h5>
         </div>
+        <img data-light="yes" src="images/${this.img}" alt="pizza company">
+
         `)
 
         //right btn 
@@ -75,7 +77,7 @@ class PetClass {
 
 
 
-        let secDiv = $("<div class='secDiv'></div>");
+        let secDiv = $("<div data-light='yes' class='secDiv'></div>");
         $(this.parent).append(secDiv);
 
         $(secDiv).append(`<h3 class="mt-4 pb-2">State</h3>`)
