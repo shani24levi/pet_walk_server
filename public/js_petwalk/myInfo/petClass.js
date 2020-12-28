@@ -75,7 +75,6 @@ class PetClass {
         })
 
 
-        //KD
         let secDiv = $(`<div class='secDiv'></div>`);
         $(this.parent).append(secDiv);
 
@@ -85,7 +84,7 @@ class PetClass {
         $(secDiv).append(insidDiv);
 
         $(insidDiv).append(`<div class="col-8 align-self-center p-2">
-            <h4 data-light="light" data-info="${this.img}" data-i="${this.i}"><strong>Today's Plans</strong></h4>
+            <h4><strong>Today's Plans</strong></h4>
             <h5>${this.complitDayPlan} tasks completed</h5>
         </div>`)
 
@@ -98,9 +97,9 @@ class PetClass {
         `);
         $(pricentDiv).append(btnPricent);
 
-        $(btnPricent).on("click", () => {
-            console.log('upate peicent');
-        })
+        // $(btnPricent).on("click", () => {
+        //     console.log('upate peicent');
+        // })
 
 
         let insidDiv2 = $("<div class='row p-3 my-3 justify-content-between btn_section' style='box-shadow:none'></div>");
