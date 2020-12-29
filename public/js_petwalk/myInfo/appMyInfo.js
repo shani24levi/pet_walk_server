@@ -32,7 +32,7 @@ const init = async () => {
 export const goodJob = () => {
   $("body").prepend(`
   <div class="good">
-     <img src="images/good.gif" width="100%" >    
+     <img src="images/so-good.gif" width="30%" >    
   </div>
   `)
   $(".good").on("click", function () {
