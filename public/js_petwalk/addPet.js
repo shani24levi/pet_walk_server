@@ -139,9 +139,18 @@ const init = async () => {
                 }
             })
                 .then(myData => {
-                    Swal.fire('${newPet.name} added');
-                    //calert(`${newPet.name} added`);
-                    window.location.href = "myPets.html";
+                    Swal.fire({
+                        title: `${newPet.name} added`,
+                        showDenyButton: true,
+                        showCancelButton: true,
+                        confirmButtonText: `ok`,
+                      }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                          Swal.fire('OK!', '', 'success')
+                          window.location.href = "myPets.html";
+                        }
+                      })
                 })
                 .catch(error => {
                     console.log(error.response);

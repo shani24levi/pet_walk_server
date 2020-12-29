@@ -6,7 +6,7 @@ import { } from '../../plugs/lightBox.js';
 $(() => {
   init();
   $(document).lightBox();
-  //declareViewEvents();
+  declareViewEvents();
 })
 
 const init = async () => {
@@ -30,19 +30,28 @@ const init = async () => {
 }
 
 export const goodJob = () => {
-  $("body").prepend(`
-  <div class="good">
-     <img src="images/good.gif" width="100%" >   
-     <img src="images/so-good.gif" width="50%" class="text-center">     
-  </div>
-  `)
-  $(".good").on("click", function () {
-    $(".good").addClass("d-none")
+  Swal.fire({
+    title: 'Wonderful !',
+    width: 600,
+    padding: '3em',
+    background: '#fff',
+    backdrop: `
+      rgba(0,0,123,0.4)
+      url("/images/good.gif")
+      no-repeat
+    `
   })
 }
 
-
-
+// $("body").prepend(`
+// <div class="good">
+//    <img src="images/good.gif" width="100%" >   
+//    <img src="images/so-good.gif" width="50%" class="text-center">     
+// </div>
+// `)
+// $(".good").on("click", function () {
+//   $(".good").addClass("d-none")
+// })
 
 export const showUpdat = async (updateOne ,updated) => {
   let url = "/pets/ofUser";
@@ -115,13 +124,35 @@ export const updatMyInfo = async (updateOne) => {
     })
 }
 
-
-
-
-// const declareViewEvents = () => {
-//     $("#id_start_walk").on("click", () => {
-//         //lightBoxs()
-//         sendEditData()
-//     })
-// }
+const declareViewEvents = () => {
+    $("#id_start_walk").on("click", () => {
+      Swal.mixin({
+        input: 'text',
+        confirmButtonText: 'Next &rarr;',
+        showCancelButton: true,
+        progressSteps: ['1', '2', '3']
+      }).queue([
+        {
+          title: 'Where we play?',
+          text: 'Garden, park, house, with friends'
+        },
+        'Playing time',
+        'Energy level'
+      ]).then((result) => {
+        if (result.value) {
+          const answers = JSON.stringify(result.value)
+          Swal.fire({
+            title: 'All done!',
+            html: `
+              Your Day Play:
+              <pre><code>${answers}</code></pre>
+            `,
+            confirmButtonText: 'Lovely!'
+          })
+        }
+      })
+      //update activity level:
+      //updatMyInfo(result.value)
+    })
+}
 
