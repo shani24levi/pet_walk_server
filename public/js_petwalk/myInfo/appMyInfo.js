@@ -44,16 +44,13 @@ export const goodJob = () => {
 
 
 
-export const showUpdat = async (updateOne) => {
+export const showUpdat = async (updateOne ,updated) => {
   let url = "/pets/ofUser";
   let data = await doApiGet(url);
-  console.log(updateOne);
-  if(updateOne==100)
-  goodJob();
-  
+
   createPet(data, updateOne, data.length);
-  console.log(updateOne);
-  if(updateOne==100)
+  console.log(updated);
+  if(updated==100)
     goodJob();
   //clare:
   localStorage.removeItem('petName');
@@ -106,7 +103,7 @@ export const updatMyInfo = async (updateOne) => {
     }
 })
     .then(myData => {
-      showUpdat(pet.index)
+      showUpdat(pet.index, Number(updateOne))
     })
     .catch(error => {
         if (error.response.status == 404) {
