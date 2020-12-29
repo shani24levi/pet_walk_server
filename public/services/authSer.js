@@ -23,6 +23,6 @@ export const auth = async() => {
 }
 
 
-setInterval(()=>{
-  auth();
-},32000000)
+// setInterval(()=>{
+//   auth();
+// },432000)
