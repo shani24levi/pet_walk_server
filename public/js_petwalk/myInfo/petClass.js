@@ -43,6 +43,7 @@ class PetClass {
 
         $(btnLeft).on("click", () => {
             if (this.i <= this.lenthData && this.i != 0) {
+                console.log(this.ar);
                 createPet(this.ar, this.i - 1, this.lenthData + 1);
             }
             if (this.i == 0) {
