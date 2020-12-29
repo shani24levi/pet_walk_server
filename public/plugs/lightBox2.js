@@ -87,17 +87,6 @@ const createLightBox = () => {
   </div>
   `)
 
-  // const createLightBox = () => {
-  //   $("body").prepend(`
-  //   <div class="light_box">
-  //   <div class="light_inside">
-  //     <img class="light_img" src="" class="float-left mr-2 w-50">
-  //     <p class="light_txt">test</p>
-  //     <button>Close</button>
-  //   </div>
-  // </div>
-  //   `)
-
 
   let lightCss = {
     position: "fixed",

@@ -1,7 +1,7 @@
 import { updatMyInfo } from "../js_petwalk/myInfo/appMyInfo.js";
 
-$.fn.lightBox = function () {
-  console.log('lightbox');
+$.fn.lightBox3 = function () {
+  console.log('lightbox2');
   createLightBox();
 
   $(".light_box .b-close").on("click", function () {
@@ -17,8 +17,8 @@ $.fn.lightBox = function () {
 
   $('#qty_input').prop('disabled', true);
 
-  $("#data-light").on("click", function () {
-    console.log("aaaa")
+  $("#data-light2").on("click", function () {
+    console.log("aaaa2")
     let imgSrc = $(this).attr("data-percent");
     let imgAlt = $(this).attr("data-alt");
     showLightBox(imgSrc, imgAlt);

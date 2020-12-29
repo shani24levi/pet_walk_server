@@ -1,6 +1,7 @@
 import { createPet } from "./petManager.js";
 import { } from '../../plugs/lightBox.js';
 import { } from '../../plugs/lightBox2.js';
+import { } from '../../plugs/lightBox3.js';
 import { updatMyInfo } from './appMyInfo.js';
 
 class PetClass {
@@ -108,36 +109,6 @@ class PetClass {
             localStorage.setItem(`index`, `${this.i}`);
         })
 
-        //  //one:2:
-        //  let insidDiv22 = $(`<div class='row p-3 justify-content-between btn_section' style='box-shadow:none'></div>`)
-        //  $(secDiv).append(insidDiv22);
-
-        //  $(insidDiv22).append(`<div class="col-8 align-self-center p-2">
-        //      <h4><strong>Today's Plans</strong></h4>
-        //      <h5>${this.complitActivity} tasks completed</h5>
-        //  </div>`)
-
-        //  let pricentDiv22 = $("<div class='col-4 align-self-center text-center demo'></div>");
-        //  $(insidDiv22).append(pricentDiv22);
-
-        //  //pricent btn 
-        //  let btnPricent22 = $(` 
-        //  <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
-        //  `);
-        //  $(pricentDiv22).append(btnPricent22);
-
-        //  $(btnPricent22).on("click", () => {
-        //      localStorage.setItem(`petName`, `${this.name}`);
-        //      localStorage.setItem(`petId`, `${this.id}`);
-        //      localStorage.setItem(`update`, `currActivityLevel`);
-        //      localStorage.setItem(`index`, `${this.i}`);
-        //  })
-
-
-
-
-
-
         //two:
         let insidDiv2 = $("<div class='row p-3 my-3 justify-content-between btn_section' style='box-shadow:none'></div>");
         $(secDiv).append(insidDiv2);
@@ -152,12 +123,11 @@ class PetClass {
 
         //pricent btn 
         let btnPricent2 = $(` 
-               <div id='data-light2' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-2 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
+               <div id='data-light2' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
                `);
         $(pricentDiv2).append(btnPricent2);
 
         $(btnPricent2).on("click", () => {
-            console.log('222');
             localStorage.setItem(`petName`, `${this.name}`);
             localStorage.setItem(`petId`, `${this.id}`);
             localStorage.setItem(`update`, `currActivityLevel`);
@@ -182,7 +152,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent3 = $(` 
-               <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currFoodLevel}"></div>
+               <div id='data-light3' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currFoodLevel}"></div>
                `);
         $(pricentDiv3).append(btnPricent3);
 
@@ -192,8 +162,6 @@ class PetClass {
             localStorage.setItem(`update`, `currFoodLevel`);
             localStorage.setItem(`index`, `${this.i}`);
         })
-
-
 
 
         let walkDiv = $("<div class='col-auto text-center'></div>");
@@ -247,14 +215,12 @@ class PetClass {
         // function set in pet_walk_app in Plangs folder-> jquery.circlechart.js
         // sorce:  https://www.jqueryscript.net/loading/Create-Percentage-Circles-with-jQuery-CSS3-percircle-js.html
         $('.demo-1').percentcircle();
-        $('.demo-2').percentcircle();
 
 
         //lightbox
-        // $(document).lightBox();
         $('#data-light2').lightBox2();
         $('#data-light').lightBox();
-
+        $('#data-light3').lightBox3();
     }
 }
 
