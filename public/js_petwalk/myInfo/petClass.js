@@ -1,5 +1,6 @@
 import { createPet } from "./petManager.js";
 import { } from '../../plugs/lightBox.js'
+import { updatMyInfo } from './appMyInfo.js';
 
 class PetClass {
     constructor(_parent, _img, _type, _name, _age, _dayPlan, _activityLevel, _foodLevel, _dayPlanLevel, _currDayPlanLevel, _currActivityLevel, _currFoodLevel, _i, _ar, _dataLength, _id) {
@@ -233,11 +234,14 @@ class PetClass {
             })
 
             //update activity level:
-            localStorage.setItem(`petName`, `${this.name}`);
-            localStorage.setItem(`petId`, `${this.id}`);
-            localStorage.setItem(`update`, `currActivityLevel`);
-            localStorage.setItem(`index`, `${this.i}`);
-            updatMyInfo(result.value[2]);
+            if (Number(result.value[2]) > 1) {
+                localStorage.setItem(`petName`, `${this.name}`);
+                localStorage.setItem(`petId`, `${this.id}`);
+                localStorage.setItem(`update`, `currActivityLevel`);
+                localStorage.setItem(`index`, `${this.i}`);
+                updatMyInfo(result.value[2]);
+            }
+
         })
 
         // function set in pet_walk_app in Plangs folder-> jquery.circlechart.js

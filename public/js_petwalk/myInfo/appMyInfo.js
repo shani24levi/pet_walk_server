@@ -30,28 +30,18 @@ const init = async () => {
 }
 
 export const goodJob = () => {
-  Swal.fire({
-    title: 'Wonderful !',
-    width: 600,
-    padding: '3em',
-    background: '#fff',
-    backdrop: `
-      rgba(0,0,123,0.4)
-      url("/images/good.gif")
-      no-repeat
-    `
+  $("body").prepend(`
+  <div class="good">
+     <img src="images/good.gif" width="100%" >   
+     <img src="images/so-good.gif" width="50%" class="text-center">     
+  </div>
+  `)
+  $(".good").on("click", function () {
+    $(".good").addClass("d-none")
   })
 }
 
-// $("body").prepend(`
-// <div class="good">
-//    <img src="images/good.gif" width="100%" >   
-//    <img src="images/so-good.gif" width="50%" class="text-center">     
-// </div>
-// `)
-// $(".good").on("click", function () {
-//   $(".good").addClass("d-none")
-// })
+
 
 export const showUpdat = async (updateOne ,updated) => {
   let url = "/pets/ofUser";
