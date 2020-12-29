@@ -252,7 +252,8 @@ class PetClass {
 
         //lightbox
         // $(document).lightBox();
-        $(document).lightBox2();
+        $('#data-light2').lightBox2();
+        $('#data-light').lightBox();
 
     }
 }
