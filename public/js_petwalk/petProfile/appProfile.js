@@ -26,33 +26,95 @@ export const getLocalStorag = () => {
 //do to- testing the butoon delete
 const deletePet = async () => {
     $("#id_delete").on("click", () => {
-        alert("Are you sure?!");
-        if (alert) {
-            let pet = getLocalStorag();
-            let myUrl = `/pets/${pet.id}`;
-            // let myUrl = `http://localhost:5000/pets/${pet.id}`;
-            axios({
-                method: 'DELETE',
-                url: myUrl,
-                headers: {
-                    "x-auth-token": localStorage["token"]
-                }
-            })
-                .then(myData => {
-                    alert(`${pet.neme} has been deleted`);
-                    clearLocalStorag();
-                    window.location.href = "myPets.html";
-                })
-                .catch(error => {
-                    console.log(error.response);
-                    if (error.response.status == Number(401)) {
-                        alert("Pet is not found");
-                    }
-                    if (error.response.status == 500) {
-                        alert("Server Error , Try later");
-                    }
-                })
-        }
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success',
+              cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+          })
+          
+          swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+              swalWithBootstrapButtons.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+
+              //dlete:
+              let pet = getLocalStorag();
+              let myUrl = `/pets/${pet.id}`;
+              axios({
+                  method: 'DELETE',
+                  url: myUrl,
+                  headers: {
+                      "x-auth-token": localStorage["token"]
+                  }
+              })
+                  .then(myData => {
+                      alert(`${pet.neme} has been deleted`);
+                      clearLocalStorag();
+                      window.location.href = "myPets.html";
+                  })
+                  .catch(error => {
+                      console.log(error.response);
+                      if (error.response.status == Number(401)) {
+                          alert("Pet is not found");
+                      }
+                      if (error.response.status == 500) {
+                          alert("Server Error , Try later");
+                      }
+                  })
+
+            } else if (
+              /* Read more about handling dismissals below */
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire(
+                'Cancelled',
+                'Your imaginary file is safe :)',
+                'error'
+              )
+            }
+          })
+
+        // alert("Are you sure?!");
+        // if (alert) {
+        //     let pet = getLocalStorag();
+        //     let myUrl = `/pets/${pet.id}`;
+        //     // let myUrl = `http://localhost:5000/pets/${pet.id}`;
+        //     axios({
+        //         method: 'DELETE',
+        //         url: myUrl,
+        //         headers: {
+        //             "x-auth-token": localStorage["token"]
+        //         }
+        //     })
+        //         .then(myData => {
+        //             alert(`${pet.neme} has been deleted`);
+        //             clearLocalStorag();
+        //             window.location.href = "myPets.html";
+        //         })
+        //         .catch(error => {
+        //             console.log(error.response);
+        //             if (error.response.status == Number(401)) {
+        //                 alert("Pet is not found");
+        //             }
+        //             if (error.response.status == 500) {
+        //                 alert("Server Error , Try later");
+        //             }
+        //         })
+        // }
     })
 }
 

@@ -139,7 +139,8 @@ const init = async () => {
                 }
             })
                 .then(myData => {
-                    alert(`${newPet.name} added`);
+                    Swal.fire('${newPet.name} added');
+                    //calert(`${newPet.name} added`);
                     window.location.href = "myPets.html";
                 })
                 .catch(error => {

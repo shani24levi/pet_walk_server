@@ -13,8 +13,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-
+    <script>
+        $(() => {
+    Swal.fire('Any fool can use a computer');
+})
+    </script>
 
 </head>
 
@@ -27,9 +32,10 @@
     </header>
 
     <main class="container-fluid">
-        <div class="good">
+        Swal.fire('Any fool can use a computer');
+        <!-- <div class="good">
             <img src="images/good.gif" width="300" >    
-            </div>
+            </div> -->
         </div>
 
         <div id='data-light' data-src=${this.img} data-alt=${this.i}>
