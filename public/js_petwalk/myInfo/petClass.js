@@ -157,6 +157,7 @@ class PetClass {
 
         $(btnPricent2).on("click", () => {
             console.log('222');
+            $(document).lightBox();
             localStorage.setItem(`petName`, `${this.name}`);
             localStorage.setItem(`petId`, `${this.id}`);
             localStorage.setItem(`update`, `currActivityLevel`);
@@ -186,6 +187,7 @@ class PetClass {
         $(pricentDiv3).append(btnPricent3);
 
         $(btnPricent3).on("click", () => {
+            $(document).lightBox();
             localStorage.setItem(`petName`, `${this.name}`);
             localStorage.setItem(`petId`, `${this.id}`);
             localStorage.setItem(`update`, `currFoodLevel`);
@@ -231,8 +233,6 @@ class PetClass {
                         confirmButtonText: 'Lovely!'
                     })
                 }
-            })
-
             //update activity level:
             if (Number(result.value[2]) > 1) {
                 localStorage.setItem(`petName`, `${this.name}`);
@@ -241,6 +241,7 @@ class PetClass {
                 localStorage.setItem(`index`, `${this.i}`);
                 updatMyInfo(result.value[2]);
             }
+            })
 
         })
 
@@ -251,11 +252,7 @@ class PetClass {
 
 
         //lightbox
-        // $(document).lightBox();
-        $('.demo-1').lightBox();
-        $('.demo-2').lightBox();
-
-
+        $(document).lightBox();
     }
 }
 
