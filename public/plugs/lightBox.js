@@ -1,7 +1,6 @@
 import { updatMyInfo } from "../js_petwalk/myInfo/appMyInfo.js";
 
 $.fn.lightBox = function () {
-  console.log('lightbox');
   createLightBox();
 
   $(".light_box .b-close").on("click", function () {

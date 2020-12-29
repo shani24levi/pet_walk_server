@@ -1,8 +1,6 @@
 import { doApiGet } from "../../services/apiSer.js";
 import { auth } from "../../services/authSer.js";
 import { createPet } from "./petManager.js";
-import { } from '../../plugs/lightBox2.js';
-import { } from '../../plugs/lightBox.js';
 
 
 $(() => {
@@ -46,7 +44,6 @@ export const showUpdat = async (updateOne ,updated) => {
   let data = await doApiGet(url);
 
   createPet(data, updateOne, data.length);
-  console.log(updated);
   if(updated==100)
     goodJob();
   //clare:

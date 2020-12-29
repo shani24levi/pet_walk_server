@@ -53,7 +53,7 @@ class PetClass {
         })
 
         $(newDiv).append(`
-            <div class="col d-flex justify-content-start">
+            <div class="col d-flex justify-content-center align-items-center">
                 <img src="${this.img}"
                 alt="Avatar" class="img_pet" style="border: #fff solid; border-radius: 50%; padding: 5%;">
             </div>
