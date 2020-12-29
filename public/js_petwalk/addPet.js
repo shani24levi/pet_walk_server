@@ -126,12 +126,14 @@ const init = async () => {
                 }
             })
                 .then(myData => {
-                    Swal.fire(`${newPet.name} added`);
-                    console.log(result);
-                    if (result.isConfirmed) {
-                        window.location.href = "myPets.html";
-                    }
-
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${newPet.name} added`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    window.location.href = "myPets.html";
                 })
                 .catch(error => {
                     console.log(error.response);
