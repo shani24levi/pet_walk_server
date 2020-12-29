@@ -5,7 +5,6 @@ import { createPet } from "./petManager.js";
 
 $(() => {
   init();
-  $(document).lightBox();
 })
 
 const init = async () => {

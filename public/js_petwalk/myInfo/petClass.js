@@ -151,7 +151,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent2 = $(` 
-               <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-2 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
+               <div id='data-light2' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-2 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
                `);
         $(pricentDiv2).append(btnPricent2);
 
@@ -250,7 +250,9 @@ class PetClass {
 
 
         //lightbox
-        // $(document).lightBox();
+        $(document).lightBox();
+        $(document).lightBox2();
+
     }
 }
 
