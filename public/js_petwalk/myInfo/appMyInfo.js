@@ -32,14 +32,13 @@ const init = async () => {
 export const goodJob = () => {
   $("body").prepend(`
   <div class="good">
-     <img src="images/so-good.gif" width="30%" >    
+     <img src="images/good.gif" width="100%" >   
+     <img src="images/so-good.gif" width="50%" class="text-center">     
   </div>
   `)
   $(".good").on("click", function () {
     $(".good").addClass("d-none")
-    // $(".good").fadeOut(700);
   })
-
 }
 
 
