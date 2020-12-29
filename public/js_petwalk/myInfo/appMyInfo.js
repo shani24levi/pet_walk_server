@@ -29,12 +29,29 @@ const init = async () => {
   }
 }
 
+export const goodJob = () => {
+  $("body").prepend(`
+  <div class="good">
+     <img src="images/good.gif" >    
+  </div>
+  `)
+  $(".good").on("click", function () {
+    $(".goodx").fadeOut(700);
+  })
+
+}
+
+
+
+
 export const showUpdat = async (updateOne) => {
   let url = "/pets/ofUser";
   let data = await doApiGet(url);
   console.log(data);
   console.log(data.length);
   createPet(data, updateOne, data.length);
+  if(updateOne==100)
+    goodJob();
   //clare:
   localStorage.removeItem('petName');
   localStorage.removeItem('petId');
