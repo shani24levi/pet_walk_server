@@ -1,6 +1,6 @@
 import { doApiGet } from "../../services/apiSer.js";
 import { auth } from "../../services/authSer.js";
-import { createPet } from "./petManager.js";
+import { createPet, createPet2 } from "./petManager.js";
 
 
 $(() => {
@@ -44,7 +44,7 @@ export const showUpdat = async (updateOne ,updated) => {
   let data = await doApiGet(url);
 
   console.log(updateOne);
-  createPet(data, updateOne, data.length);
+  createPet2(data, updateOne, data.length);
   if(updated==100)
     goodJob();
   //clare:
