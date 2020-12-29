@@ -16,6 +16,7 @@ const petSchema = new mongoose.Schema({
   },
   img:{
     type:String,
+    default: "https://icon-library.com/images/dog-icon/dog-icon-16.jpg"
   },
   age:{
     type:Number,
