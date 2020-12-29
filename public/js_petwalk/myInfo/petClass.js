@@ -171,7 +171,7 @@ class PetClass {
         //walk btn 
         let walkBtn = $(` 
         <button id="id_start_walk" type="submit" class="btn btn-lg btns_blue my-4 w-75">Start a
-        Walk</button>        
+        Play</button>        
         `);
         $(walkDiv).append(walkBtn);
 

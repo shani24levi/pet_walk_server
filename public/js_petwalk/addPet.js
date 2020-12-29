@@ -5,7 +5,6 @@ $(() => {
 const init = async () => {
     $("#id_form").on("submit", (evt) => {
         evt.preventDefault();
-        // let myUrl = "http://localhost:5000/pets";
         let myUrl = "/pets";
         let ifSend = true;
 
@@ -81,10 +80,6 @@ const init = async () => {
             $("#id_dayPlanLevel").next().next().next().removeClass("d-none");
             ifSend = false;
         }
-        // else if (typeof newPet.dayPlanLevel == "string") {
-        //     $("#id_dayPlanLevel").next().next().next().next().removeClass("d-none");
-        //     ifSend = false;
-        // }
 
         if (newPet.activityLevel == '') {
             $("#id_activityLevel").next().removeClass("d-none");
@@ -99,10 +94,6 @@ const init = async () => {
             $("#id_activityLevel").next().next().next().removeClass("d-none");
             ifSend = false;
         }
-        // else if (typeof newPet.activityLevel == "string") {
-        //     $("#id_activityLevel").next().next().next().next().removeClass("d-none");
-        //     ifSend = false;
-        // }
 
         if (newPet.foodLevel == '') {
             $("#id_foodLevel").next().removeClass("d-none");
@@ -117,10 +108,6 @@ const init = async () => {
             $("#id_foodLevel").next().next().next().removeClass("d-none");
             ifSend = false;
         }
-        // else if (typeof newPet.foodLevel == "string") {
-        //     $("#id_foodLevel").next().next().next().next().removeClass("d-none");
-        //     ifSend = false;
-        // }
 
         if (newPet.hobbies > 50) {
             $("#id_hobbies").next().removeClass("d-none");

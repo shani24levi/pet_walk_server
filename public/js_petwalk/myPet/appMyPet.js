@@ -5,7 +5,6 @@ import { createMyPets } from "./myPetManager.js";
 
 $(() => {
     init();
-    //declareViewEvents();
 })
 
 const init = async () => {
@@ -20,7 +19,6 @@ const init = async () => {
     console.log(data);
     if (data.status == "ok") {
         let url = "/pets/ofUser";
-        // let url = "http://localhost:5000/pets/ofUser";
         let data = await doApiGet(url);
         console.log(data);
         console.log(data.length);

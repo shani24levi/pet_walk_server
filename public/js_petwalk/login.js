@@ -6,7 +6,6 @@ const init = () => {
     $("#id_form").on("submit", (evt) => {
         console.log("works");
         evt.preventDefault();
-        // let myUrl = "http://localhost:5000/users/login";
 
         let myUrl = "/users/login";
         let ifSend = true;
@@ -62,7 +61,5 @@ const init = () => {
     $("#id_form .form_div input").on("focus", function () {
         $(this).next().next().addClass("d-none");
         $(this).next().addClass("d-none");
-
-
     })
 }

@@ -13,7 +13,7 @@ class MyPetClass {
         $(this.parent).append(newDiv);
 
         $(newDiv).append(`
-        <div class="col-4 d-flex justify-content-center">
+        <div class="col d-flex justify-content-center align-items-center">
         <img src="${this.img}"
             alt="${this.name}" class="img_pet" style="border: #fff solid; border-radius: 50%; padding: 5%;">
     </div>

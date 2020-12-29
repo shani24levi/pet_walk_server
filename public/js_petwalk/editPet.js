@@ -47,7 +47,6 @@ const init = async () => {
         console.log("works");
         evt.preventDefault();
         let myUrl = "/pets";
-        // let myUrl = "http://localhost:5000/pets";
         let ifSend = true;
 
         //required only set in object:
@@ -184,9 +183,6 @@ const init = async () => {
                     if (error.response.data[0].message == '"type" must be a string') {
                         $("#id_type").next().removeClass("d-none");
                     }
-                    // if (error.response.status == 400) {
-                    //     $("#id_name").next().next().removeClass("d-none");
-                    // }
                     if (error.response.status == 500) {
                         alert("Server Error , Try later");
                     }

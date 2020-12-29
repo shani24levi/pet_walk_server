@@ -23,7 +23,7 @@ export const getLocalStorag = () => {
     return pet;
 }
 
-//do to- testing the butoon delete
+
 const deletePet = async () => {
     $("#id_delete").on("click", () => {
         const swalWithBootstrapButtons = Swal.mixin({
@@ -128,7 +128,6 @@ const init = async () => {
       <div></div>`);
 
     let url = `/pets/ofUser/${pet.id}`;
-    // let url = `http://localhost:5000/pets/ofUser/${pet.id}`;
     let data = await doApiGet(url);
     console.log(data);
     createPetProfile(data);
