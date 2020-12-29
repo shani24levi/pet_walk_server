@@ -1,12 +1,11 @@
 import { doApiGet } from "../../services/apiSer.js";
 import { auth } from "../../services/authSer.js";
 import { createPet } from "./petManager.js";
-import { } from '../../plugs/lightBox.js';
+
 
 $(() => {
   init();
   $(document).lightBox();
-  declareViewEvents();
 })
 
 const init = async () => {
@@ -40,8 +39,6 @@ export const goodJob = () => {
     $(".good").addClass("d-none")
   })
 }
-
-
 
 export const showUpdat = async (updateOne ,updated) => {
   let url = "/pets/ofUser";
@@ -114,36 +111,4 @@ export const updatMyInfo = async (updateOne) => {
     })
 }
 
-const declareViewEvents = () => {
-    $("#id_start_walk").on("click", () => {
-      console.log('ssssss');
-      Swal.mixin({
-        input: 'text',
-        confirmButtonText: 'Next &rarr;',
-        showCancelButton: true,
-        progressSteps: ['1', '2', '3']
-      }).queue([
-        {
-          title: 'Where we play?',
-          text: 'Garden, park, house, with friends'
-        },
-        'Playing time',
-        'Energy level'
-      ]).then((result) => {
-        if (result.value) {
-          const answers = JSON.stringify(result.value)
-          Swal.fire({
-            title: 'All done!',
-            html: `
-              Your Day Play:
-              <pre><code>${answers}</code></pre>
-            `,
-            confirmButtonText: 'Lovely!'
-          })
-        }
-      })
-      //update activity level:
-      //updatMyInfo(result.value)
-    })
-}
 

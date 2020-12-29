@@ -157,7 +157,6 @@ class PetClass {
 
         $(btnPricent2).on("click", () => {
             console.log('222');
-            $(document).lightBox();
             localStorage.setItem(`petName`, `${this.name}`);
             localStorage.setItem(`petId`, `${this.id}`);
             localStorage.setItem(`update`, `currActivityLevel`);
@@ -187,7 +186,6 @@ class PetClass {
         $(pricentDiv3).append(btnPricent3);
 
         $(btnPricent3).on("click", () => {
-            $(document).lightBox();
             localStorage.setItem(`petName`, `${this.name}`);
             localStorage.setItem(`petId`, `${this.id}`);
             localStorage.setItem(`update`, `currFoodLevel`);
@@ -221,7 +219,6 @@ class PetClass {
                 'Playing time',
                 'Energy level'
             ]).then((result) => {
-                console.log(result.value);
                 if (result.value) {
                     const answers = JSON.stringify(result.value)
                     Swal.fire({
@@ -234,6 +231,7 @@ class PetClass {
                     })
                 }
             //update activity level:
+            console.log(result.value[2]);
             if (Number(result.value[2]) > 1) {
                 localStorage.setItem(`petName`, `${this.name}`);
                 localStorage.setItem(`petId`, `${this.id}`);
@@ -252,7 +250,7 @@ class PetClass {
 
 
         //lightbox
-        $(document).lightBox();
+        // $(document).lightBox();
     }
 }
 
