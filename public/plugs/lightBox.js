@@ -52,7 +52,7 @@ const plus = () => {
   $('#qty_input').val(parseInt($('#qty_input').val()) + 1);
   console.log($('#qty_input').val());
   $(".light_box #qty_input").attr("value", $('#qty_input').val());
-  if ($('#qty_input').val() == 101) {
+  if ($('#qty_input').val() == 100) {
     $('#qty_input').val(100);
   }
 }
