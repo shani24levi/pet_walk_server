@@ -126,6 +126,7 @@ export const updatMyInfo = async (updateOne) => {
 
 const declareViewEvents = () => {
     $("#id_start_walk").on("click", () => {
+      console.log('ssssss');
       Swal.mixin({
         input: 'text',
         confirmButtonText: 'Next &rarr;',

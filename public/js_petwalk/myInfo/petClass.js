@@ -150,7 +150,7 @@ class PetClass {
 
         //pricent btn 
         let btnPricent2 = $(` 
-               <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-1 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
+               <div id='data-light' data-id=${this.id} data-this='currDayPlanLevel' data-name=${this.name} data-src=${this.img} data-alt=${this.i} class="demo-2 align-self-center text-center" data-percent="${this.currActivityLevel}"></div>
                `);
         $(pricentDiv2).append(btnPricent2);
 
@@ -211,6 +211,8 @@ class PetClass {
         // function set in pet_walk_app in Plangs folder-> jquery.circlechart.js
         // sorce:  https://www.jqueryscript.net/loading/Create-Percentage-Circles-with-jQuery-CSS3-percircle-js.html
         $('.demo-1').percentcircle();
+        $('.demo-2').percentcircle();
+
 
         //lightbox
         $(document).lightBox();
