@@ -233,7 +233,11 @@ class PetClass {
             })
 
             //update activity level:
-            //updatMyInfo(result.value);
+            localStorage.setItem(`petName`, `${this.name}`);
+            localStorage.setItem(`petId`, `${this.id}`);
+            localStorage.setItem(`update`, `currActivityLevel`);
+            localStorage.setItem(`index`, `${this.i}`);
+            updatMyInfo(result.value[2]);
         })
 
         // function set in pet_walk_app in Plangs folder-> jquery.circlechart.js
@@ -243,7 +247,8 @@ class PetClass {
 
 
         //lightbox
-        $(document).lightBox();
+        // $(document).lightBox();
+        $('.demo-1').lightBox();
         $('.demo-2').lightBox();
 
 
