@@ -17,7 +17,7 @@ $.fn.lightBox3 = function () {
 
   $('#qty_input').prop('disabled', true);
 
-  $("#data-light2").on("click", function () {
+  $("#data-light3").on("click", function () {
     console.log("aaaa2")
     let imgSrc = $(this).attr("data-percent");
     let imgAlt = $(this).attr("data-alt");
