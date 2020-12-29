@@ -109,9 +109,4 @@ body{background: #E5E5E5;}
         align-items: center;
 }
 
-@media screen and (max-width:450px){
-    .img_pet{
-        max-width:70%;
-    }
- 
-}
+
