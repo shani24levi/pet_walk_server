@@ -202,7 +202,7 @@ class PetClass {
                 }
             //update activity level:
             console.log(result.value[2]);
-            if (Number(result.value[2]) > 1) {
+            if (Number(result.value[2]) >= 1) {
                 localStorage.setItem(`petName`, `${this.name}`);
                 localStorage.setItem(`petId`, `${this.id}`);
                 localStorage.setItem(`update`, `currActivityLevel`);
