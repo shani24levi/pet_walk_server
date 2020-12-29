@@ -1,5 +1,6 @@
 import { createPet } from "./petManager.js";
-import { } from '../../plugs/lightBox.js'
+import { } from '../../plugs/lightBox.js';
+import { } from '../../plugs/lightBox2.js';
 import { updatMyInfo } from './appMyInfo.js';
 
 class PetClass {
