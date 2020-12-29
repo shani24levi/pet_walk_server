@@ -1,4 +1,8 @@
 import PetClass from "./petClass.js";
+import { } from '../../plugs/lightBox2.js';
+import { } from '../../plugs/lightBox.js';
+
+
 
 export const createPet = (_arr, i, dataLength) => {
   $("main .my_pets").html("");
