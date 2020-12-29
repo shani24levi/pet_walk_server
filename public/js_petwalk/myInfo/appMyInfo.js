@@ -50,7 +50,7 @@ export const showUpdat = async (updateOne) => {
   console.log(data);
   console.log(data.length);
   createPet(data, updateOne, data.length);
-  console(updateOne);
+  console.log(updateOne);
   if(updateOne==100)
     goodJob();
   //clare:
