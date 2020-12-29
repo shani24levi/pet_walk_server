@@ -47,8 +47,10 @@ export const goodJob = () => {
 export const showUpdat = async (updateOne) => {
   let url = "/pets/ofUser";
   let data = await doApiGet(url);
-  console.log(data);
-  console.log(data.length);
+  console.log(updateOne);
+  if(updateOne==100)
+  goodJob();
+  
   createPet(data, updateOne, data.length);
   console.log(updateOne);
   if(updateOne==100)
