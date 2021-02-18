@@ -5,8 +5,9 @@ const { socialModel } = require("../models/social");
 const { validUser, validLogin, createToken, validEditUser } = require("../validation/users");
 const bcrypt = require("bcrypt");
 const _ = require("lodash");
+const gravatar = require('gravatar');
 
-const getUsers = async (req, res) => {
+const getUsers = (req, res) => {
   try {
     userModel.find({}, { email: 1, user: 1 })
       .then(data => { res.json(data); })
@@ -20,7 +21,7 @@ const getUsers = async (req, res) => {
   }
 }
 
-const getUser = async (req, res) => {
+const getUser = (req, res) => {
   try {
     let userId = req._id;
     userModel.findOne({ _id: userId }, { email: 1, user: 1 })
@@ -83,8 +84,17 @@ const userRegister = async (req, res) => {
       //Defines the level of encryption
       let salt = await bcrypt.genSalt(10);
       req.body.pass = await bcrypt.hash(req.body.pass, salt);
+      //Create avater for poto:
+      const avatar = gravatar.url(req.body.email, {
+        s: '200',
+        r: 'pg',
+        d: 'mm'
+      });
+      req.body.avatar=avatar;
+
       try {
         let data = await userModel.insertMany([req.body]);
+        console.log(data);
         // Hides properties and displays only properties that are listed in a function
         let dataHidden = _.pick(data[0], ["user", "email", "_id", "date_time"])
         res.json(dataHidden)
@@ -132,7 +142,7 @@ const editUser = async (req, res) => {
   }
 }
 
-const deleteUser = async (req, res) => {
+const deleteUser = (req, res) => {
   try {
     let userId = req._id;
     //delete all items of the user in the db

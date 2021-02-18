@@ -13,6 +13,7 @@ const mongoCon = require("./dbs_connected/mongo_connected");
 //Middleware 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(express.static('image'))
 app.use(express.urlencoded({ extended: false }));
 
 // Server static assets 
@@ -23,6 +24,7 @@ app.all('*', function (req, res, next) {
   res.set('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,x-auth-token,x-api-key');
   next();
 });
+
 
 //Routs Middlewares
 const usersRouter = require('./routes/users');

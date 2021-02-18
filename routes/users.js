@@ -5,7 +5,7 @@ const control = require('../controllers/users')
 
 
 /* GET all users */
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
   control.getUsers(req,res);
 });
 
@@ -15,12 +15,12 @@ router.get('/auth',authToken,(req,res) => {
 
 
 /* GET user by id after login*/
-router.get('/user/',authToken, async (req, res) => {
+router.get('/user/',authToken, (req, res) => {
   control.getUser(req, res);
 })
 
 // authToken 
-router.get('/admin',authToken, async (req, res) => {
+router.get('/admin',authToken, (req, res) => {
   userModel.find({})
     .then(data => {
       res.json(data);

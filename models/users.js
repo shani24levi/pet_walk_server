@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
   user: String,
   email: String,
   pass: String,
+  avatar: String,
   date_time: {
     type: Date, default: Date.now
   },
