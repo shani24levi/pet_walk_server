@@ -2,12 +2,11 @@ const express = require('express');
 const { socialModel } = require("../models/social");
 const { validSocial, validEditSocial } = require("../validation/social");
 
-const getSocials = async (req, res) => {
+const getSocials = (req, res) => {
     try {
-        socialModel.find({}, { img: 1, title: 1, date_time: 1 })
-            .limit(5)
+        socialModel.find({})
+            .populate('user_id', 'avatar email')
             .then(data => {
-                console.log(data);
                 res.json(data)
             })
             .catch(err => {
@@ -22,13 +21,12 @@ const getSocials = async (req, res) => {
     }
 }
 
-const getSocial = async (req, res) => {
+const getSocial = (req, res) => {
     try {
         let getuserId = req._id;
-        socialModel.find({ user_id: getuserId }, { img: 1, title: 1, date_time: 1 })
-            .limit(5)
+        socialModel.find({ user_id: getuserId })
+            .populate('user_id', 'avatar email')
             .then(data => {
-                console.log(data);
                 res.json(data)
             })
             .catch(err => {
@@ -43,7 +41,7 @@ const getSocial = async (req, res) => {
     }
 }
 
-const searchSocials = async (req, res) => {
+const searchSocials = (req, res) => {
     try {
         let searchQ = req.query.q;
         let mySearch = new RegExp(searchQ);
@@ -106,7 +104,7 @@ const editSocial = async (req, res) => {
             try {
                 // req.body.user_id = getuserId;
                 let data = await socialModel.updateOne({ _id: req.body.id }, req.body);
-                res.json(data)
+                res.json(req.file.filename)
             }
             catch (err) {
                 res.status(400).json({ message: "Error try again", code: "error" });
@@ -128,13 +126,13 @@ const deleteSocial = async (req, res) => {
     try {
         let getuserId = req._id;
         let idDel = req.params.idDel;
-    
+
         let checkPetUserToToken = await socialModel.findOne({ _id: idDel, user_id: getuserId })
         console.log(checkPetUserToToken)
         if (!checkPetUserToToken) {
             return res.status(400).json({ error: "Unauthorized to delete" })
         }
-    
+
         socialModel.deleteOne({ _id: idDel }, (err, data) => {
             if (err) { res.status(400).json(err) }
             res.json(data);

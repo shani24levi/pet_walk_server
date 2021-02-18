@@ -21,10 +21,7 @@ const socialSchema = new mongoose.Schema({
   pet_id:{ 
     type:String
   },
-  user_id:{
-    type:String,
-    required:true
-  }
+  user_id:{type: mongoose.Schema.Types.ObjectId, ref: 'users'}
 })
 const socialModel = mongoose.model("socialnetworks",socialSchema);
 exports.socialModel = socialModel;
