@@ -3,12 +3,11 @@ const { petModel } = require("../models/pets");
 const { validPet ,validEditPet } = require("../validation/pets");
 
 //get all pets of all users
-const getPets = async (req, res) => {
+const getPets = (req, res) => {
     try {
         petModel.find({})
             .limit(5)
             .then(data => {
-                console.log(data);
                 res.json(data)
             })
             .catch(err => {
@@ -24,14 +23,13 @@ const getPets = async (req, res) => {
 }
 
 //get all pets of one user
-const getPet = async (req, res) => {
+const getPet = (req, res) => {
     try {
         let getuserId = req._id;
         //dont show user_id
         petModel.find({ user_id: getuserId }, { user_id: 0 })
             .limit(5)
             .then(data => {
-                console.log(data);
                 res.json(data)
             })
             .catch(err => {
@@ -47,13 +45,12 @@ const getPet = async (req, res) => {
 }
 
 //get one pet of user
-const getPetById = async (req, res) => {
+const getPetById = (req, res) => {
     try {
         let petId = req.params.id;
         //dont show pet_id
         petModel.find({ _id: petId }, { _id: 0 })
             .then(data => {
-                console.log(data);
                 res.json(data)
             })
             .catch(err => { //not found
@@ -71,8 +68,8 @@ const getPetById = async (req, res) => {
 const addPet = async (req, res) => {
     try {
         let getuserId = req._id;
-        let valid = validPet(req.body);
-        if (!valid.error) {
+       let valid = validPet(req.body);
+       if (!valid.error) {
             try {
                 //check if the dog name exixt for id_user
                 petModel.find({ name: req.body.name, user_id: getuserId }, async (err, data) => {
@@ -90,7 +87,7 @@ const addPet = async (req, res) => {
             catch (err) {
                 res.status(400).json({ message: "Erorr" });
             }
-        }
+       }
         else {
             res.status(400).json(valid.error.details);
         }
@@ -104,11 +101,13 @@ const addPet = async (req, res) => {
 }
 
 const editPet = async (req, res) => {
+    console.log("hi");
     try {
         let getuserId = req._id;
         //Check that a pet belongs to the user
         let checkPetUserToToken = await petModel.findOne({ _id: req.body.id, user_id: getuserId })
         console.log(checkPetUserToToken)
+ 
         if (!checkPetUserToToken) {
             return res.status(401).json({ error: "User is not the pets owner,Unauthorized to edit" })
         }
@@ -118,11 +117,9 @@ const editPet = async (req, res) => {
             try {
                 req.body.user_id = getuserId;
                 let data = await petModel.updateOne({ _id: req.body.id }, req.body);
-                console.log(data);
                 res.json(data)
             }
             catch (err) {
-                console.log(valid.error);
                 res.status(402).json({ message: "Error try again", code: "error" });
             }
         }
@@ -163,7 +160,7 @@ const deletePet = async (req, res) => {
     }
 }
 
-const searchPet = async (req, res) => {
+const searchPet = (req, res) => {
     try {
         let searchQ = req.query.q;
         let mySearch = new RegExp(searchQ);
