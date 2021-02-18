@@ -1,7 +1,7 @@
 const express = require('express');
-const { userModel } = require("../models/users_model");
-const { petModel } = require("../models/pets_model");
-const { socialModel } = require("../models/social_model");
+const { userModel } = require("../models/users");
+const { petModel } = require("../models/pets");
+const { socialModel } = require("../models/social");
 const { validUser, validLogin, createToken, validEditUser } = require("../validation/users");
 const bcrypt = require("bcrypt");
 const _ = require("lodash");

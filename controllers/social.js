@@ -1,5 +1,5 @@
 const express = require('express');
-const { socialModel } = require("../models/social_model");
+const { socialModel } = require("../models/social");
 const { validSocial, validEditSocial } = require("../validation/social");
 
 const getSocials = async (req, res) => {

@@ -1,5 +1,5 @@
 const express = require('express');
-const { petModel } = require("../models/pets_model");
+const { petModel } = require("../models/pets");
 const { validPet ,validEditPet } = require("../validation/pets");
 
 //get all pets of all users
