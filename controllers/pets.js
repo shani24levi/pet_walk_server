@@ -2,7 +2,6 @@ const express = require('express');
 const { petModel } = require("../models/pets");
 const { validPet ,validEditPet } = require("../validation/pets");
 
-//get all pets of all users
 const getPets = (req, res) => {
     try {
         petModel.find({})
@@ -22,11 +21,9 @@ const getPets = (req, res) => {
     }
 }
 
-//get all pets of one user
 const getPet = (req, res) => {
     try {
         let getuserId = req._id;
-        //dont show user_id
         petModel.find({ user_id: getuserId }, { user_id: 0 })
             .limit(5)
             .then(data => {
@@ -44,11 +41,9 @@ const getPet = (req, res) => {
     }
 }
 
-//get one pet of user
 const getPetById = (req, res) => {
     try {
         let petId = req.params.id;
-        //dont show pet_id
         petModel.find({ _id: petId }, { _id: 0 })
             .then(data => {
                 res.json(data)
@@ -101,7 +96,6 @@ const addPet = async (req, res) => {
 }
 
 const editPet = async (req, res) => {
-    console.log("hi");
     try {
         let getuserId = req._id;
         //Check that a pet belongs to the user
@@ -120,6 +114,42 @@ const editPet = async (req, res) => {
                 res.json(data)
             }
             catch (err) {
+                res.status(402).json({ message: "Error try again", code: "error" });
+            }
+        }
+        else {
+            res.status(400).json(valid.error.details);
+        }
+    }
+    catch (err) {
+        res.status(500).json({
+            status: 500,
+            message: err.message,
+        })
+    }
+}
+
+const editPetElements = async (req, res) => {
+    try {
+        let getuserId = req._id;
+        let checkPetUserToToken = await petModel.findOne({ _id: req.body.id, user_id: getuserId })
+        console.log(checkPetUserToToken)
+ 
+        if (!checkPetUserToToken) {
+            return res.status(401).json({ error: "User is not the pets owner,Unauthorized to edit" })
+        }
+
+        let valid = validEditPet(req.body);
+        if (!valid.error) {
+            try {
+                req.body.user_id = getuserId;
+                let data = await petModel.updateOne({ _id: req.body.id }, req.body);
+                console.log(data);
+                res.json(data)
+            }
+            catch (err) {
+                console.log(err);
+                console.log(valid.error);
                 res.status(402).json({ message: "Error try again", code: "error" });
             }
         }
@@ -189,5 +219,6 @@ module.exports = {
     addPet,
     editPet,
     deletePet,
-    searchPet
+    searchPet,
+    editPetElements
 };

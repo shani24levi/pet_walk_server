@@ -27,16 +27,14 @@ app.all('*', function (req, res, next) {
 
 
 //Routs Middlewares
-const usersRouter = require('./routes/users');
-const petsRouter = require('./routes/pets');
-const socialNetworkRouter = require('./routes/socialNetworks');
-app.use('/users', usersRouter);
-app.use('/pets', petsRouter);
-app.use('/socialNetworks', socialNetworkRouter);
+// const usersRouter = require('./routes/users');
+// const petsRouter = require('./routes/pets');
+// const socialNetworkRouter = require('./routes/socialNetworks');
+// app.use('/users', usersRouter);
+// app.use('/pets', petsRouter);
+// app.use('/socialNetworks', socialNetworkRouter);
 
 
-//client conction
-app.use(express.static('public'));
 
 //Listening on port 
 const port = process.env.PORT || 5000 ;

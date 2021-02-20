@@ -29,6 +29,10 @@ router.put('/',authToken,upload.single('img'),async (req,res) => {
 })
 
 
+router.put('/pet',authToken,async (req,res) => {
+  control.editPetElements(req, res);
+})
+
 router.delete("/:idDel",authToken, async(req,res) => {
   control.deletePet(req, res);
 })
