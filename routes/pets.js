@@ -28,6 +28,9 @@ router.put('/',authToken,upload.single('img'),async (req,res) => {
   control.editPet(req, res);
 })
 
+router.post('/file',authToken,upload.single('img'),async (req,res) => {
+  res.json(req.file.filename)
+})
 
 router.put('/pet',authToken,async (req,res) => {
   control.editPetElements(req, res);
